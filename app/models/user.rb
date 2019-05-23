@@ -1,8 +1,10 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
-  has_and_belongs_to_many :incidents
-  has_and_belongs_to_many :submitter_incidents, class_name: 'incident', foreign_key: 'submitter'
-  has_and_belongs_to_many :responsible_for_incidents, class_name: 'incident', foreign_key: 'responsible'
+class User < ApplicationRecord
+  has_many :incidents
+  has_many :addresses
+  has_many :group_squads
+  has_many :groups, through: :group_squads
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

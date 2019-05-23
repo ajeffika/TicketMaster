@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateIncidents < ActiveRecord::Migration[5.2]
   def change
     create_table :incidents do |t|
@@ -6,9 +8,8 @@ class CreateIncidents < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.integer :status
       t.datetime :pending
-      t.references :submitter
-      t.references :responsible
       t.references :group, foreign_key: true
+      t.integer :category_id, foreign_key: true
       t.string :attachment
       t.text :comment
       t.integer :step

@@ -43,18 +43,17 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
     t.index ["address_id"], name: "index_contractors_on_address_id"
   end
 
+  create_table "group_squads", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_group_squads_on_group_id"
+    t.index ["user_id"], name: "index_group_squads_on_user_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "group_id", null: false
-    t.bigint "groups_id"
-    t.index ["groups_id"], name: "index_groups_users_on_groups_id"
-    t.index ["user_id"], name: "index_groups_users_on_user_id"
   end
 
   create_table "incidents", force: :cascade do |t|
@@ -63,26 +62,15 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
     t.bigint "user_id"
     t.integer "status"
     t.datetime "pending"
-    t.bigint "submitter_id"
-    t.bigint "responsible_id"
     t.bigint "group_id"
+    t.integer "category_id"
     t.string "attachment"
     t.text "comment"
     t.integer "step"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_incidents_on_group_id"
-    t.index ["responsible_id"], name: "index_incidents_on_responsible_id"
-    t.index ["submitter_id"], name: "index_incidents_on_submitter_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
-  end
-
-  create_table "incidents_users", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "incident_id", null: false
-    t.bigint "incidents_id"
-    t.index ["incidents_id"], name: "index_incidents_users_on_incidents_id"
-    t.index ["user_id"], name: "index_incidents_users_on_user_id"
   end
 
   create_table "slas", force: :cascade do |t|
@@ -108,14 +96,11 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "categories", "categories", column: "sla_id"
   add_foreign_key "categories", "incidents"
   add_foreign_key "contractors", "addresses"
-  add_foreign_key "groups_users", "groups", column: "groups_id"
-  add_foreign_key "groups_users", "users"
+  add_foreign_key "group_squads", "groups"
+  add_foreign_key "group_squads", "users"
   add_foreign_key "incidents", "groups"
   add_foreign_key "incidents", "users"
-  add_foreign_key "incidents_users", "incidents", column: "incidents_id"
-  add_foreign_key "incidents_users", "users"
   add_foreign_key "slas", "categories"
 end
