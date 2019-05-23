@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  incident: one
+  sla_id: 1
+
+two:
+  name: MyString
+  description: MyString
+  incident: two
+  sla_id: 1

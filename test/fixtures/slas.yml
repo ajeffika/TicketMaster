@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sla_type: MyString
+  sla_time: 2019-05-22 12:24:47
+  category: one
+
+two:
+  sla_type: MyString
+  sla_time: 2019-05-22 12:24:47
+  category: two
