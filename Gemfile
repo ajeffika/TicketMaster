@@ -38,6 +38,7 @@ group :test do
 end
 
 gem 'devise'
+gem 'devise_token_auth'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'petergate'
