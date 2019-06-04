@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FlashableConcern
   extend ActiveSupport::Concern
 
@@ -22,7 +24,6 @@ module FlashableConcern
   def message
     t("flash.api.actions.#{action_name}.#{flash_status}",
       resource_name: model_name,
-      gender: model_gender
-    )
+      gender: model_gender)
   end
 end

@@ -15,12 +15,11 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def create
     incident = Incident.new(incident_params)
     if incident.save
-      render json: { data: IncidentSerializer.new(incident) }.merge!(flash_action)
-    else
-      render json: flash_action
+      render json: { data: IncidentSerializer.new(incident) }#.merge!(flash_action)
+    #else
+      #render json: flash_action
     end
   end
-
 
   private
 

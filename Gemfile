@@ -37,13 +37,13 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'active_model_serializers'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'petergate'
-gem 'slim'
 gem 'responders'
-gem 'active_model_serializers'
 gem 'simple_form'
+gem 'slim'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

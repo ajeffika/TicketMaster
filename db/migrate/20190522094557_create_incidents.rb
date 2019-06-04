@@ -8,8 +8,8 @@ class CreateIncidents < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.integer :status
       t.datetime :pending
-      t.references :group, foreign_key: true
-      t.integer :category_id, foreign_key: true
+      t.references :group, foreign_key: true, default: 1
+      t.integer :category_id, foreign_key: true, default: 1
       t.string :attachment
       t.text :comment
       t.integer :step
