@@ -43,4 +43,7 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'petergate'
 gem 'slim'
+gem 'responders'
+gem 'active_model_serializers'
+gem 'simple_form'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
