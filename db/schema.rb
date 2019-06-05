@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.bigint "incident_id"
     t.integer "sla_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["incident_id"], name: "index_categories_on_incident_id"
   end
 
   create_table "contractors", force: :cascade do |t|
@@ -83,12 +81,19 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "email", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.text "tokens"
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.integer "role", default: 0
     t.bigint "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,7 +102,6 @@ ActiveRecord::Schema.define(version: 2019_05_22_102447) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "categories", "incidents"
   add_foreign_key "contractors", "addresses"
   add_foreign_key "group_squads", "groups"
   add_foreign_key "group_squads", "users"

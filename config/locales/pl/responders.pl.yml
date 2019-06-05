@@ -1,0 +1,24 @@
+pl:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} został dodany.'
+        alert: '%{resource_name} nie został dodany.'
+      update:
+        notice: '%{resource_name} został@{|m:a|n:o} poprawnie zaktualizowan@{f:y|m:a|n:e}.'
+        alert: '%{resource_name} could not be updated.'
+      destroy:
+        notice: '%{resource_name} został pomyślnie zniszczony.'
+        alert: '%{resource_name} nie mógł zostać być zniszczony.'
+
+    api:
+      actions:
+        create:
+          success: '%{resource_name} został@{f:a|m: |n:o} dodan@{f:a|m:y|n:e}.'
+          negative: '%{resource_name} nie został dodan@{f:y|m:a|n:e}.'
+        update:
+          success: '%{resource_name} został@{f:a|m: |n:o} zaktualizowan@{f:a|m:y|n:e}.'
+          negative: '%{resource_name}nie m@{f:o|m:ó|n:o}gł@{f:a|m: |n:o} zostać być zaktualizowan@{f:y|m:a|n:e}.'
+        destroy:
+          success: '%{resource_name} został@{f:a|m: |n:o} pomyślnie zniszczon@{f:a|m:y|n:e}.'
+          negative: '%{resource_name} nie m@{f:o|m:ó|n:o}gł@{f:a|m: |n:o} zostać być zniszczon@{f:y|m:a|n:e}.'

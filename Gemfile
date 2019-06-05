@@ -44,6 +44,7 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'petergate'
 gem 'responders'
-gem 'simple_form'
+gem 'factory_bot'
+gem 'faker'
 gem 'slim'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
