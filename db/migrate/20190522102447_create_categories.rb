@@ -5,7 +5,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
     create_table :categories do |t|
       t.string :name
       t.string :description
-      t.integer :sla_id, foreign_key: true
+      t.references :sla, foreign_key: true
 
       t.timestamps
     end

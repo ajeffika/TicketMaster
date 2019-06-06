@@ -4,7 +4,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   respond_to :json
 
   def index
-    @incidents = Incident.find_by group: groups_scope
+    @incidents = Incident.joins(:group, :user).where('incident.group = ?', User.first.groups)
     render json: @incidents
   end
 
@@ -25,7 +25,6 @@ class Api::V1::IncidentsController < Api::V1::BaseController
 
   def build_and_authorize
     @incident = Incident.new
-    # authorize(@muscle)
   end
 
   def incident_params
