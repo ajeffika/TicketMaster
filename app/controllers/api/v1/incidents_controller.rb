@@ -4,7 +4,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   respond_to :json
 
   def index
-    @incidents = Incident.joins(:group, :user).where('incident.group = ?', User.first.groups)
+    @incidents = IncidentsQuery.new.fetch
     render json: @incidents
   end
 

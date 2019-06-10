@@ -40,11 +40,11 @@ end
 gem 'active_model_serializers'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'factory_bot'
+gem 'faker'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'petergate'
 gem 'responders'
-gem 'factory_bot'
-gem 'faker'
 gem 'slim'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

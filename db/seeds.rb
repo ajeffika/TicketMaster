@@ -21,9 +21,9 @@
 end
 
 @user_group = []
-5.times do
-@user_group << Group.create!(
-  name: Faker::Company.unique.profession
+2.times do
+  @user_group << Group.create!(
+    name: Faker::Company.unique.profession
   )
 end
 
@@ -67,7 +67,7 @@ end
   @category << Category.create!(
     name: Faker::Lorem.sentence(3),
     description: Faker::Company.bs,
-    sla_id: Faker::Number.between(1,5)
+    sla_id: Faker::Number.between(1, 5)
   )
 end
 
