@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class IncidentSerializer < BaseSerializer
-  attributes %i[title
+  attributes %i[id
+                title
                 description
                 user_id
                 status

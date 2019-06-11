@@ -2,33 +2,43 @@
 
 class Api::V1::IncidentsController < Api::V1::BaseController
   respond_to :json
+  skip_before_action :verify_authenticity_token
 
   def index
     @incidents = IncidentsQuery.new.fetch
     render json: @incidents
   end
 
-  def new
-    build_and_authorize
+  def show
+    incident = Incident.find(params[:id])
+
+    render json: { data: IncidentSerializer.new(incident) }
   end
 
   def create
     incident = Incident.new(incident_params)
     if incident.save
-      render json: { data: IncidentSerializer.new(incident) }.merge!(flash_action)
+      render json: { data: IncidentSerializer.new(incident) }
     else
-      render json: flash_action
+      render json: 'Record did not save'
+    end
+  end
+
+  def update
+    incident = Incident.find(incident_params[:id])
+
+    if incident.update(incident_params)
+      render json: { data: IncidentSerializer.new(incident) }
+    else
+      render json: 'Record did not save'
     end
   end
 
   private
 
-  def build_and_authorize
-    @incident = Incident.new
-  end
-
   def incident_params
-    params.require(:incident).permit(%i[title
+    params.require(:incident).permit(%i[id
+                                        title
                                         description
                                         user_id
                                         status
