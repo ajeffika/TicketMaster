@@ -2,7 +2,6 @@
 
 class Api::V1::IncidentsController < Api::V1::BaseController
   respond_to :json
-  skip_before_action :verify_authenticity_token
 
   def index
     @incidents = IncidentsQuery.new.fetch
