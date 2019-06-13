@@ -2,6 +2,7 @@
 
 class IncidentsQuery
   def initialize
+    ### Placeholder - for now
     @user_groups = User.first.groups
   end
 
