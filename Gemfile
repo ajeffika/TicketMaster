@@ -32,6 +32,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
   gem 'chromedriver-helper'
   gem 'rubocop-rspec'
   gem 'selenium-webdriver'
