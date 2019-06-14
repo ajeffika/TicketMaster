@@ -1,6 +1,5 @@
 class Api::V2::CategoriesController < Api::V2::BaseController
   # frozen_string_literal: true
-  respond_to :json
   def index
     @categories = Category.all
     render json: @categories

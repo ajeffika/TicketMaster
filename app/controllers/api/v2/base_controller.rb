@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Api::V2::BaseController < Api::BaseController
   include FlashableConcern
   respond_to :json
