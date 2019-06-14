@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
 class Category < ApplicationRecord
-  belongs_to :incident
+  has_many :incidents
+  belongs_to :sla
 end
