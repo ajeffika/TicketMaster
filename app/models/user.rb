@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   has_many :incidents
-  has_many :addresses
+  belongs_to :address
   has_many :group_squads
   has_many :groups, through: :group_squads
   # Include default devise modules. Others available are:

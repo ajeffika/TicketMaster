@@ -35,14 +35,14 @@ group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'rubocop-rspec'
+  gem 'factory_bot_rails'
   gem 'chromedriver-helper'
-  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 3.0'
 end
 
 gem 'active_model_serializers'
 gem 'devise'
 gem 'devise_token_auth'
-gem 'factory_bot'
 gem 'faker'
 gem 'friendly_id'
 gem 'kaminari'
