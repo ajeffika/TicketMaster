@@ -32,11 +32,11 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'rubocop-rspec'
-  gem 'factory_bot_rails'
   gem 'chromedriver-helper'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'rubocop-rspec'
+  gem 'shoulda-matchers'
   gem 'webdrivers', '~> 3.0'
 end
 

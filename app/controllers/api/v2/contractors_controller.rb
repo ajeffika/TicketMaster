@@ -1,5 +1,5 @@
 class Api::V2::ContractorsController < Api::V2::BaseController
-# frozen_string_literal: true
+  # frozen_string_literal: true
   respond_to :json
 
   def index
