@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  include DeviseTokenAuth::Concerns::User
   has_many :incidents
   belongs_to :address, optional: true
   has_many :group_squads
@@ -10,6 +9,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
 
   enum role: { normal: 0, admin: 1 }
 end
