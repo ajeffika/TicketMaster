@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :group_squad do
-    user { create(:user) }
-    group { create(:group) }
+    user
+    group
   end
 end

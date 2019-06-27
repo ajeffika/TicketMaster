@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :contractor do
     sequence(:contractor_name) { |n| "contractor-#{n}" }
-    address { create(:address) }
+    address
   end
 end

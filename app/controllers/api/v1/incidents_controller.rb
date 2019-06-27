@@ -11,13 +11,13 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def show
     incident = Incident.find(params[:id])
 
-    render json: { data: IncidentSerializer.new(incident) }
+    render json: incident
   end
 
   def create
     incident = Incident.new(incident_params)
     if incident.save
-      render json: { data: IncidentSerializer.new(incident) }
+      render json: incident
     else
       render json: 'Record did not save'
     end
@@ -27,7 +27,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
     incident = Incident.find(incident_params[:id])
 
     if incident.update(incident_params)
-      render json: { data: IncidentSerializer.new(incident) }
+      render json: incident
     else
       render json: 'Record did not save'
     end
