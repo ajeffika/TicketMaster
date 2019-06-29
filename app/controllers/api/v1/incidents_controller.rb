@@ -14,6 +14,12 @@ class Api::V1::IncidentsController < Api::V1::BaseController
     render json: incident
   end
 
+  def destroy
+    incident = Incident.find(params[:id])
+    incident.destroy
+    render json: @incidents
+  end
+
   def create
     incident = Incident.new(incident_params)
     if incident.save

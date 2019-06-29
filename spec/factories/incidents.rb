@@ -6,7 +6,7 @@ FactoryBot.define do
     description { Faker::Company.bs }
     user
     status { Faker::Number.between(0, 2) }
-    pending { Faker::Date.between(20.days.ago, Date.today) }
+    pending { Faker::Date.between(20.days.ago, Date.current) }
     group
     category
     attachment { Faker::Color.color_name }

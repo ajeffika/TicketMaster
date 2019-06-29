@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module AuthorizationHelper
   def sign_up(user)
     # The argument 'user' should be a hash that includes the params 'email' and 'password'.
     post user_registration_path,
          params: { email: user[:email],
                    password: user[:password] },
-                   #password_confirmation: user[:password] },
+         # password_confirmation: user[:password] },
          as: :json
   end
 
