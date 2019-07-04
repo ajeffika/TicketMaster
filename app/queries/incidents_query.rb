@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class IncidentsQuery
-  def initialize
-    ### Placeholder - for now
-    @user_groups = User.first.groups
+  def initialize(user)
+    @user_groups = user.groups
   end
 
   def fetch

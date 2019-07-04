@@ -4,7 +4,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   respond_to :json
 
   def index
-    @incidents = IncidentsQuery.new.fetch
+    @incidents = IncidentsQuery.new(current_user).fetch
     render json: @incidents
   end
 
