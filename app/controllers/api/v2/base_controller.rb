@@ -1,7 +1,6 @@
 # frozen_string_literal: true
-class Api::V2::BaseController < Api::BaseController
-  include FlashableConcern
-  respond_to :json
-  # before_action :authenticate_user!, :deep_underscore_params!
-  protect_from_forgery with: :null_session
+
+class Api::BaseController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
+  before_action :authenticate_user!
 end

@@ -1,5 +1,7 @@
 class Api::V2::SlasController < Api::V2::BaseController
   # frozen_string_literal: true
+  respond_to :json
+
   def index
     @slas = Sla.all
     render json: @slas

@@ -1,0 +1,31 @@
+require: rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  TargetRailsVersion: 5.2.3
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+
+Rails:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'db/migrate/**/*.rb'
+    - 'db/data/**/*.rb'
+    - 'lib/tasks/**/*.rake'
+    - 'config/**/*.rb'
+
+Metrics/LineLength:
+  Max: 120
+
+Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact

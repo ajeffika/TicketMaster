@@ -16,7 +16,8 @@
     first_name: Faker::Name.name,
     last_name: Faker::Name.last_name,
     age: Faker::Number.between(10, 100),
-    role: Faker::Number.between(0, 2)
+    role: Faker::Number.between(0, 1),
+    confirmed_at: DateTime.now
   )
 end
 
