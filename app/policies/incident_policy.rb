@@ -1,8 +1,7 @@
 class IncidentPolicy < ApplicationPolicy
-  attr_reader :user
 
   def update?
-    user.admin?
+    user.admin? or determine_user
   end
 
   def delete?
@@ -11,5 +10,12 @@ class IncidentPolicy < ApplicationPolicy
 
   def destroy?
     user.admin?
+  end
+
+  private
+
+  def determine_user
+    if incident.created_by == user.id
+    end
   end
 end

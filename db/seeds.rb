@@ -84,7 +84,9 @@ end
     category: @category.sample,
     attachment: Faker::Color.color_name,
     comment: Faker::Company.bs,
-    step: Faker::Number.between(1, 5)
+    step: Faker::Number.between(1, 5),
+    created_by: Faker::Number.between(1, 5),
+    modified_by: Faker::Number.between(1, 5)
   )
 end
 puts 'created 5 records in every table'

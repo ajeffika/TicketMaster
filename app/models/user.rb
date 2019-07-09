@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  cattr_accessor :current_user
   has_many :incidents
   belongs_to :address, optional: true
   has_many :group_squads
