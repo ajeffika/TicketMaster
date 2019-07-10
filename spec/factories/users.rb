@@ -10,6 +10,6 @@ FactoryBot.define do
     last_name { 'Skywalker' }
     birth_date {DateTime.now}
     role { :admin }
-    confirmed_at { DateTime.now }
+    confirmed_at { DateTime.zone.now }
   end
 end
