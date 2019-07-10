@@ -1,6 +1,14 @@
 class IncidentPolicy < ApplicationPolicy
 
+  def index?
+    true
+  end
+
   def update?
+    user.admin? or determine_user
+  end
+
+  def show?
     user.admin? or determine_user
   end
 

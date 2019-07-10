@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
-    t.integer "age"
+    t.datetime "birth_date"
     t.integer "role", default: 0
     t.bigint "address_id"
     t.datetime "created_at", null: false

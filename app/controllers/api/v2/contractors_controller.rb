@@ -30,6 +30,12 @@ class Api::V2::ContractorsController < Api::V2::BaseController
     end
   end
 
+  def destroy
+    contractor = Contractor.find(params[:id])
+    contractor.destroy
+    render json: @contractors
+  end
+
   private
 
   def contractor_params
