@@ -15,7 +15,7 @@
     username: Faker::Internet.user_name,
     first_name: Faker::Name.name,
     last_name: Faker::Name.last_name,
-    age: Faker::Number.between(10, 100),
+    birth_date: DateTime.now,
     role: Faker::Number.between(0, 1),
     confirmed_at: DateTime.now
   )
@@ -84,7 +84,9 @@ end
     category: @category.sample,
     attachment: Faker::Color.color_name,
     comment: Faker::Company.bs,
-    step: Faker::Number.between(1, 5)
+    step: Faker::Number.between(1, 5),
+    created_by: Faker::Number.between(1, 5),
+    modified_by: Faker::Number.between(1, 5)
   )
 end
 puts 'created 5 records in every table'

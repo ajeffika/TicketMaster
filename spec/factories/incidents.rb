@@ -12,5 +12,7 @@ FactoryBot.define do
     attachment { Faker::Color.color_name }
     comment { Faker::Company.bs }
     step { Faker::Number.between(1, 3) }
+    created_by { Faker::Number.between(1, 4) }
+    modified_by { Faker::Number.between(1, 4) }
   end
 end

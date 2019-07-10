@@ -30,6 +30,12 @@ class Api::V2::GroupSquadsController < Api::V2::BaseController
     end
   end
 
+  def destroy
+    group_squad = GroupSquad.find(params[:id])
+    group_squad.destroy
+    render json: @group_squads
+  end
+
   private
 
   def group_squad_params

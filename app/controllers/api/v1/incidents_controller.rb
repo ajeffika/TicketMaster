@@ -49,6 +49,8 @@ class Api::V1::IncidentsController < Api::V1::BaseController
                                         category_id
                                         attachment
                                         comment
-                                        step])
+                                        step
+                                        created_by
+                                        modified_by])
   end
 end

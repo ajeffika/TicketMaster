@@ -8,6 +8,7 @@ FactoryBot.define do
     sequence(:username) { |n| "user#{n}" }
     first_name { 'Luke' }
     last_name { 'Skywalker' }
+    birth_date {DateTime.now}
     role { :admin }
     confirmed_at { DateTime.now }
   end

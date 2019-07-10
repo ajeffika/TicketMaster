@@ -3,8 +3,8 @@ class Api::V2::AddressesController < Api::V2::BaseController
   respond_to :json
 
   def index
-    @address = Address.all
-    render json: @address
+    @addresses = Address.all
+    render json: @addresses
   end
 
   def show
@@ -30,6 +30,11 @@ class Api::V2::AddressesController < Api::V2::BaseController
     end
   end
 
+  def destroy
+    address = Address.find(params[:id])
+    address.destroy
+    render json: @addresses
+  end
   private
 
   def address_params

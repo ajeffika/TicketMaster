@@ -30,6 +30,12 @@ class Api::V2::SlasController < Api::V2::BaseController
     end
   end
 
+  def destroy
+    sla = Sla.find(params[:id])
+    sla.destroy
+    render json: @slas
+  end
+
   private
 
   def sla_params
