@@ -55,4 +55,5 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'responders'
 gem 'slim'
 gem 'webpacker', '~> 4.x'
+gem 'react-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

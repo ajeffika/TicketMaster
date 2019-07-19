@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Home from './Home';
-import ArticleList from './ArticleList';
-import ArticleAdd from './ArticleAdd';
-import ArticleInfo from './ArticleInfo';
-import ArticleEdit from './ArticleEdit';
+import IncidentList from './IncidentList';
 import {HashRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
 
 class App extends Component {
