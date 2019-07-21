@@ -21,8 +21,8 @@ class IncidentList extends Component {
                 {this.state.incidents.map((incident) => {
                     return(
                         <div key={incident.id}>
-                            <h2><Link to={`/incidents/${incident.id}`}>{incident.title}</Link></h2>
-                            {incident.content}
+                            <h2><Link to={`/incidents/${incident.id}`}>{incident.title} desc: {incident.description}</Link></h2>
+
                             <hr/>
                         </div>
                     )

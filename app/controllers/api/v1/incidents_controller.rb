@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Api::V1::IncidentsController < Api::V1::BaseController
   def index
-    @incidents = IncidentsQuery.new(current_user).fetch
+    @incidents = IncidentsQuery.new(User.first).fetch
     render json: @incidents
   end
 
