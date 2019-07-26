@@ -43,6 +43,7 @@ end
 
 gem 'active_model_serializers'
 gem 'devise'
+gem 'bootstrap'
 gem 'bundler'
 gem 'devise_token_auth'
 gem 'faker'

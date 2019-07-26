@@ -20,11 +20,14 @@ class IncidentList extends Component {
             <div>
                 {this.state.incidents.map((incident) => {
                     return(
-                        <div key={incident.id}>
-                            <h2><Link to={`/incidents/${incident.id}`}>{incident.title} desc: {incident.description}</Link></h2>
+                        <div className="incident-container">
+                            <div key={incident.id}>
+                                <h2><Link to={`/incidents/${incident.id}`}>{incident.title} desc: {incident.description}</Link></h2>
 
-                            <hr/>
+                                <hr/>
+                            </div>
                         </div>
+
                     )
                 })}
                 <Link to="/incidents/new" className="btn btn-outline-primary">Create Incident</Link>

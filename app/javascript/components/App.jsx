@@ -11,8 +11,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
+                    <Navigation />
                     <div className="container">
-                        <Navigation />
                         <Main />
                     </div>
                 </Router>
@@ -21,13 +21,15 @@ class App extends Component {
     }
 }
 
+
 const Navigation = () => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar-stretch navbar navbar-expand-lg navbar-dark bg-dark">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/">Home</NavLink></li>
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/incidents">Incidents</NavLink></li>
         </ul>
     </nav>
+
 );
 
 const Main = () => (
