@@ -32,9 +32,9 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'rspec-rails'
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
@@ -42,19 +42,19 @@ group :test do
 end
 
 gem 'active_model_serializers'
-gem 'devise'
 gem 'bootstrap'
 gem 'bundler'
+gem 'devise'
 gem 'devise_token_auth'
 gem 'faker'
 gem 'friendly_id'
-gem 'pundit'
 gem 'kaminari'
 gem 'omniauth'
 gem 'petergate'
+gem 'pundit'
 gem 'rack-cors', require: 'rack/cors'
+gem 'react-rails'
 gem 'responders'
 gem 'slim'
-gem 'webpacker', '~> 4.x'
-gem 'react-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'webpacker', '~> 4.x'

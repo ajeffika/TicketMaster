@@ -4,7 +4,7 @@ class Incident < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category
   belongs_to :group, optional: true
-
+  belongs_to :contractor
   def update_created_by
     self.created_by = current_user_id
   end

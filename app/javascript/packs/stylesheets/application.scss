@@ -12,16 +12,9 @@
  */
 
 @import '~bootstrap/scss/bootstrap.scss';
+@import 'incident.scss';
 
 .navbar-stretch{
   width:100%;
 }
 
-.incident-container{
-  width:100%;
-  background:#BBBBBB;
-  border-radius: 1px;
-  -webkit-box-shadow: 7px 10px 31px -10px rgba(0,0,0,0.38);
-  -moz-box-shadow: 7px 10px 31px -10px rgba(0,0,0,0.38);
-  box-shadow: 7px 10px 31px -10px rgba(0,0,0,0.38);
-}

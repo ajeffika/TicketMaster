@@ -7,6 +7,7 @@ class IncidentSerializer < BaseSerializer
                 user_id
                 status
                 pending
+                contractor
                 group_id
                 category_id
                 attachment

@@ -9,6 +9,7 @@ FactoryBot.define do
     pending { Faker::Date.between(20.days.ago, Date.current) }
     group
     category
+    contractor
     attachment { Faker::Color.color_name }
     comment { Faker::Company.bs }
     step { Faker::Number.between(1, 3) }

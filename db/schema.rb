@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.bigint "user_id"
     t.integer "status"
     t.datetime "pending"
+    t.bigint "contractor_id"
     t.bigint "group_id", default: 1
     t.bigint "category_id", default: 1
     t.string "attachment"
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.integer "created_by"
     t.integer "modified_by"
     t.index ["category_id"], name: "index_incidents_on_category_id"
+    t.index ["contractor_id"], name: "index_incidents_on_contractor_id"
     t.index ["group_id"], name: "index_incidents_on_group_id"
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
@@ -114,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
   add_foreign_key "group_squads", "groups"
   add_foreign_key "group_squads", "users"
   add_foreign_key "incidents", "categories"
+  add_foreign_key "incidents", "contractors"
   add_foreign_key "incidents", "groups"
   add_foreign_key "incidents", "users"
 end

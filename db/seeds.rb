@@ -80,6 +80,7 @@ end
     user: @user.sample,
     status: Faker::Number.between(1, 5),
     pending: Faker::Date.between(20.days.ago, Date.today),
+    contractor: @contractor.sample,
     group: @user_group.sample,
     category: @category.sample,
     attachment: Faker::Color.color_name,

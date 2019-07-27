@@ -22,7 +22,8 @@ class IncidentList extends Component {
                     return(
                         <div className="incident-container">
                             <div key={incident.id}>
-                                <h2><Link to={`/incidents/${incident.id}`}>{incident.title} desc: {incident.description}</Link></h2>
+                                <Link to={`/incidents/${incident.id}`}><h2>{incident.title} </h2></Link>
+                                Contractor:  {incident.contractor_id.name}
 
                                 <hr/>
                             </div>

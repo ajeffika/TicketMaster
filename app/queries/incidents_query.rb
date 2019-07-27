@@ -6,6 +6,7 @@ class IncidentsQuery
   end
 
   def fetch
-    Incident.where(group_id: @user_groups.pluck(:id))
+    x = Incident.includes(:contractor).where(group_id: @user_groups.pluck(:id))
+    # Contractor.where(contractor_id: x.pluck(:contractor_id))
   end
 end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 class Api::V1::IncidentsController < Api::V1::BaseController
   def index
-    @incidents = IncidentsQuery.new(User.first).fetch
+    @incidents = IncidentsQuery.new(User.last).fetch
     render json: @incidents
   end
 
@@ -45,6 +46,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
                                         user_id
                                         status
                                         pending
+                                        contractor_id
                                         group_id
                                         category_id
                                         attachment

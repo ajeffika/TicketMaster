@@ -1,7 +1,8 @@
-class IncidentPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class IncidentPolicy < ApplicationPolicy
   def update?
-    user.admin? or determine_user
+    user.admin? || determine_user
   end
 
   def delete?

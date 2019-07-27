@@ -1,4 +1,4 @@
-class Api::V2::GroupSquadsController < Api::V2::BaseController
+class Api::V1::GroupSquadsController < Api::V1::BaseController
   # frozen_string_literal: true
   respond_to :json
 
