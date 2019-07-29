@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :incidents
+      resources :addresses
+      resources :categories
+      resources :contractors
+      resources :groups
+      resources :slas
+      resources :users
     end
   end
 end

@@ -7,10 +7,12 @@ class IncidentSerializer < BaseSerializer
                 user_id
                 status
                 pending
-                contractor
+                contractor_id
                 group_id
                 category_id
                 attachment
                 comment
                 step]
+  belongs_to :contractor
+  belongs_to :group
 end

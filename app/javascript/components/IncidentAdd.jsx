@@ -41,8 +41,20 @@ class IncidentAdd extends Component {
                         <input type="text" name="title" value={this.state.title} onChange={this.handleChange} className="form-control" />
                     </div>
                     <div className="form-group">
+                        <label>Description</label>
+                        <textarea name="content" rows="5" value={this.state.description} onChange={this.handleChange} className="form-control" />
+                    </div>
+                    <div className="form-group">
                         <label>Content</label>
-                        <textarea name="content" rows="5" value={this.state.content} onChange={this.handleChange} className="form-control" />
+                        <textarea name="content" rows="5" value={this.state.contractor} onChange={this.handleChange} className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Content</label>
+                        <textarea name="content" rows="5" value={this.state.sla} onChange={this.handleChange} className="form-control" />
+                    </div>
+                    <div className="form-group">
+                        <label>Content</label>
+                        <textarea name="content" rows="5" value={this.state.attachment} onChange={this.handleChange} className="form-control" />
                     </div>
                     <div className="btn-group">
                         <button type="submit" className="btn btn-dark">Create</button>
