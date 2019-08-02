@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import  axios  from 'axios';
 import { Link } from 'react-router-dom';
 
 class IncidentList extends Component {
@@ -8,7 +9,8 @@ class IncidentList extends Component {
     }
 
     componentDidMount() {
-        fetch('api/v1/incidents')
+        let token = ["access-token " + localStorage.getItem("access-token"), "uid" + localStorage.getItem('uid'), "client" + localStorage.getItem('client')];
+        axios({method: 'get', url: '/api/v1/incidents', headers: { token }})
             .then(response => response.json())
             .then(data => {
                 this.setState({incidents: data});

@@ -28,8 +28,8 @@ class IncidentInfo extends Component {
     render() {
         return (
             <div>
-                <h2>{this.state.incident.id}: {this.state.incident.title}</h2>
-                <p>{this.state.incident.content}</p>
+                <h2>{this.state.incident.title}</h2>
+                <p>{this.state.incident.description}</p>
                 <p>
                     <Link to={`/incidents/${this.state.incident.id}/edit`} className="btn btn-outline-dark">Edit</Link>
                     <button onClick={this.handleDelete} className="btn btn-outline-dark">Delete</button>

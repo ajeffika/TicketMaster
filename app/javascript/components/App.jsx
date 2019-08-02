@@ -3,6 +3,8 @@ import IncidentList from './IncidentList';
 import IncidentInfo from './IncidentInfo';
 import IncidentAdd from './IncidentAdd';
 import IncidentEdit from './IncidentEdit';
+import Login from './Login';
+import Logout from './Logout';
 import Home from './Home';
 import {HashRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
 
@@ -27,6 +29,8 @@ const Navigation = () => (
         <ul className="navbar-nav mr-auto">
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/">Home</NavLink></li>
             <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/incidents">Incidents</NavLink></li>
+            <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/login">Login</NavLink></li>
+            <li className="nav-item"><NavLink exact className="nav-link" activeClassName="active" to="/logout">Logout</NavLink></li>
         </ul>
     </nav>
 
@@ -35,6 +39,8 @@ const Navigation = () => (
 const Main = () => (
     <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/logout" component={Logout} />
         <Route exact path="/incidents" component={IncidentList} />
         <Route exact path="/incidents/new" component={IncidentAdd} />
         <Route exact path="/incidents/:id" component={IncidentInfo} />
