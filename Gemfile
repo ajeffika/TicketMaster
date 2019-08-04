@@ -33,7 +33,6 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'chromedriver-helper'
-  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
@@ -58,3 +57,5 @@ gem 'responders'
 gem 'slim'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webpacker', '~> 4.x'
+gem 'factory_bot_rails'
+

@@ -9,8 +9,9 @@ class IncidentList extends Component {
     }
 
     componentDidMount() {
-        let token = ["access-token " + localStorage.getItem("access-token"), "uid" + localStorage.getItem('uid'), "client" + localStorage.getItem('client')];
-        axios({method: 'get', url: '/api/v1/incidents', headers: { token }})
+        let token = ["access-token " + localStorage.getItem("access-token"), "uid " + localStorage.getItem('uid'), "client " + localStorage.getItem('client')];
+        console.log('kek', token)
+        axios({method: 'get', url: '/api/v1/incidents', headers: {'Authorization' : token }})
             .then(response => response.json())
             .then(data => {
                 this.setState({incidents: data});
