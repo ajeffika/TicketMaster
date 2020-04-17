@@ -16,7 +16,7 @@
     first_name: Faker::Name.name,
     last_name: Faker::Name.last_name,
     birth_date: DateTime.now,
-    role: Faker::Number.between(0, 1),
+    role: 1,
     confirmed_at: DateTime.now
   )
 end
@@ -59,34 +59,34 @@ end
 5.times do
   @sla << Sla.create!(
     sla_type: Faker::Job.field,
-    sla_time: Faker::Date.between(20.days.ago, Date.today)
+    sla_time: Faker::Date.between(from: 20.days.ago, to: Date.today)
   )
 end
 
 @category = []
 5.times do
   @category << Category.create!(
-    name: Faker::Lorem.sentence(3),
+    name: Faker::Lorem.sentence(word_count: 3),
     description: Faker::Company.bs,
-    sla_id: Faker::Number.between(1, 5)
+    sla_id: Faker::Number.between(from: 1, to: 5)
   )
 end
 
 @incident = []
 5.times do
   @incident << Incident.create!(
-    title: Faker::Lorem.sentence(3),
+    title: Faker::Lorem.sentence(word_count: 3),
     description: Faker::Company.bs,
     user: @user.sample,
-    status: Faker::Number.between(1, 5),
-    pending: Faker::Date.between(20.days.ago, Date.today),
+    status: Faker::Number.between(from: 1, to: 5),
+    pending: Faker::Date.between(from: 20.days.ago, to: Date.today),
     group: @user_group.sample,
     category: @category.sample,
     attachment: Faker::Color.color_name,
     comment: Faker::Company.bs,
-    step: Faker::Number.between(1, 5),
-    created_by: Faker::Number.between(1, 5),
-    modified_by: Faker::Number.between(1, 5)
+    step: Faker::Number.between(from: 1, to: 5),
+    created_by: Faker::Number.between(from: 1, to: 5),
+    modified_by: Faker::Number.between(from: 1, to: 5),
   )
 end
 puts 'created 5 records in every table'
