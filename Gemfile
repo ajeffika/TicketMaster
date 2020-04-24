@@ -11,10 +11,11 @@ gem 'rails', '~> 6.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
-
 gem 'coffee-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.5'
 gem 'turbolinks', '~> 5'
+gem 'devise'
+gem 'devise-token_authenticatable'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -37,16 +38,13 @@ group :test do
   gem 'chromedriver-helper'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
-  gem 'rspec-rails'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers'
   gem 'webdrivers', '~> 3.0'
 end
 
 gem 'active_model_serializers'
-gem 'devise'
 gem 'bundler'
-gem 'devise_token_auth'
 gem 'faker'
 gem 'friendly_id'
 gem 'pundit'
