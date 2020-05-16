@@ -1,0 +1,3 @@
+export const FETCH_MESSAGES = 'FETCH_MESSAGES';
+export const CREATE_MESSAGE = 'CREATE_MESSAGE';
+export const SET_CREATED = 'SET_CREATED';

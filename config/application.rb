@@ -1,33 +1,26 @@
-# frozen_string_literal: true
-
 require_relative 'boot'
-
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module TicketMaster
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    ActiveModelSerializers.config.key_transform = :camel_lower
+    ActiveModelSerializers.config.adapter = :json
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.load_defaults 6.0
+    config.time_zone = 'Warsaw'
+
+    config.i18n.enforce_available_locales = true
+    config.i18n.available_locales = %i[pl en]
+    config.i18n.default_locale = :pl
+
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helper = false
     config.generators do |g|
       g.test_framework :rspec
+      g.orm :active_record, primary_key_type: :uuid
     end
-    # config.middleware.insert_before 0, Rack::Cors do
-    #   allow do
-    #     origins 'http://localhost:3000'
-    #     resource '*',
-    #              headers: :any,
-    #              expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-    #              methods: %i[get post patch delete options]
-    #   end
-    # end
   end
 end

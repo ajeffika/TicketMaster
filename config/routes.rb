@@ -1,11 +1,20 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'pages#home'
-  mount_devise_token_auth_for 'User', at: 'auth'
+
+  get 'vue_application/index'
+  root 'vue_application#index'
+
   namespace :api do
     namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
       resources :incidents
+
+      scope :validations do
+        post '/validate-uniqueness', to: 'validations#validate_uniqueness'
+      end
     end
   end
+  get '/*path', to: 'vue_application#index', format: :html
+
 end
