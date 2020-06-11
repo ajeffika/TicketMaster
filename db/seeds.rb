@@ -10,11 +10,11 @@
 @user = []
 5.times do
   @user << User.create!(
-    email: Faker::Internet.unique.email,
+    email: FFaker::Internet.unique.email,
     password: 'zaq1@WSX',
-    username: Faker::Internet.user_name,
-    first_name: Faker::Name.name,
-    last_name: Faker::Name.last_name,
+    username: FFaker::Internet.user_name,
+    first_name: FFaker::Name.name,
+    last_name: FFaker::Name.last_name,
     birth_date: DateTime.now,
     role: 1,
     confirmed_at: DateTime.now
@@ -24,25 +24,25 @@ end
 @user_group = []
 2.times do
   @user_group << Group.create!(
-    name: Faker::Company.unique.profession
+    name: FFaker::Company.unique.name
   )
 end
 
 @address = []
 5.times do
   @address << Address.create!(
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    street: Faker::Address.street_name,
-    street_number: Faker::Address.building_number,
-    room: Faker::Address.secondary_address
+    country: FFaker::Address.country,
+    city: FFaker::Address.city,
+    street: FFaker::Address.street_name,
+    street_number: FFaker::Address.building_number,
+    room: FFaker::Address.secondary_address
   )
 end
 
 @contractor = []
 5.times do
   @contractor << Contractor.create!(
-    contractor_name: Faker::Company.name,
+    contractor_name: FFaker::Company.name,
     address: @address.sample
   )
 end
@@ -58,35 +58,34 @@ end
 @sla = []
 5.times do
   @sla << Sla.create!(
-    sla_type: Faker::Job.field,
-    sla_time: Faker::Date.between(from: 20.days.ago, to: Date.today)
+    sla_type: FFaker::Job.title,
+    sla_time: FFaker::Time.between(20.days.ago, Date.today)
   )
 end
 
 @category = []
 5.times do
   @category << Category.create!(
-    name: Faker::Lorem.sentence(word_count: 3),
-    description: Faker::Company.bs,
-    sla_id: Faker::Number.between(from: 1, to: 5)
+    name: FFaker::Lorem.sentence,
+    description: FFaker::Company.bs,
+    sla_id: 5
   )
 end
 
 @incident = []
 5.times do
   @incident << Incident.create!(
-    title: Faker::Lorem.sentence(word_count: 3),
-    description: Faker::Company.bs,
+    title: FFaker::Lorem.sentence,
+    description: FFaker::Company.bs,
     user: @user.sample,
-    status: Faker::Number.between(from: 1, to: 5),
-    pending: Faker::Date.between(from: 20.days.ago, to: Date.today),
+    status: 1,
     group: @user_group.sample,
     category: @category.sample,
-    attachment: Faker::Color.color_name,
-    comment: Faker::Company.bs,
-    step: Faker::Number.between(from: 1, to: 5),
-    created_by: Faker::Number.between(from: 1, to: 5),
-    modified_by: Faker::Number.between(from: 1, to: 5),
+    attachment: FFaker::Movie.title,
+    comment: FFaker::Company.bs,
+    step: 4,
+    created_by: Date.today,
+    modified_by: Date.today,
   )
 end
 puts 'created 5 records in every table'
