@@ -10,9 +10,16 @@
               large
               width="300px"
               class="primary--text font-weight-bold secondary"
-              @click="linkToTicketSubmit()"
-              >
-              {{$t('home.headerSection.submitTicket')}}
+            >
+            </v-btn>
+            <div class="title mt-6">{{$t('home.headerSection.subtitle')}}</div>
+            <v-btn
+              tile
+              large
+              class="black--text font-weight-bold mt-6"
+              width="200px"
+              color="primary"
+            >{{$t('home.headerSection.signUp')}}
             </v-btn>
           </div>
         </div>
@@ -30,8 +37,8 @@
       }
     },
     methods: {
-      linkToTicketSubmit() {
-        this.$router.push({ name: 'submitTicket' })
+      linkToEntries(scope) {
+        this.$router.push({ name: 'entries', params: { scopeType: scope } })
       },
       showTextArea() {
         this.initialRender = false

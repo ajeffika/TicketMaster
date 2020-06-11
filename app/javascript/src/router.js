@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import SignUp from './views/SignUp'
 import SignIn from './views/SignIn'
+import SubmitTicket from './views/SubmitTicket'
 import UserProfile from './views/UserProfile'
 import { ifAuthenticated, ifNotAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
@@ -35,6 +36,13 @@ const router = new Router({
       path: '/user_profile',
       name: 'profile',
       component: UserProfile,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/submitTicket',
+      name: 'submitTicket',
+      component: SubmitTicket,
+      meta: { layout: 'no-app-bar' },
       beforeEnter: ifAuthenticated
     }
   ]

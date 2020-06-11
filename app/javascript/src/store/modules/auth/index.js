@@ -17,7 +17,6 @@ const state = {
     firstName: '',
     lastName: '',
     permissions: {},
-    bandId: ''
   },
 };
 

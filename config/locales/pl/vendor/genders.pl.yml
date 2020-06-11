@@ -1,0 +1,11 @@
+pl:
+  activerecord:
+    attributes:
+      finished_exercise:
+        gender: neuter
+      exercise_chain:
+        gender: female
+      muscle:
+        gender: male
+      exercise:
+        gender: neuter

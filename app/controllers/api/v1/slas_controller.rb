@@ -1,4 +1,4 @@
-class Api::V2::SlasController < Api::V2::BaseController
+class Api::V1::SlasController < Api::V1::BaseController
   # frozen_string_literal: true
   respond_to :json
 

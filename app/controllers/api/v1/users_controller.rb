@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V2::UsersController < Api::V2::BaseController
+class Api::V1::UsersController < Api::V1::BaseController
   def index
     @users = User.all
     render json: @users

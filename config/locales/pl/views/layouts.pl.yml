@@ -1,0 +1,10 @@
+pl:
+  layouts:
+    components:
+      sidebar:
+        app_title: Znajdź Zespół
+        users: Użytkownicy
+      navbar:
+        logout: Wyloguj się
+        profile_settings: Ustawienia profilu
+        user: Profil

@@ -5,15 +5,7 @@
         <div class="background-image--text text-center">
           <h1 class="display-3 font-weight-bold" v-html="$t('home.headerSection.title')"></h1>
           <div class="mt-12 find-artist">
-            <v-btn
-              tile
-              large
-              width="300px"
-              class="primary--text font-weight-bold secondary"
-              @click="linkToTicketSubmit()"
-              >
-              {{$t('home.headerSection.submitTicket')}}
-            </v-btn>
+
           </div>
         </div>
       </v-col>
@@ -30,8 +22,8 @@
       }
     },
     methods: {
-      linkToTicketSubmit() {
-        this.$router.push({ name: 'submitTicket' })
+      linkToEntries(scope) {
+        this.$router.push({ name: 'entries', params: { scopeType: scope } })
       },
       showTextArea() {
         this.initialRender = false

@@ -8,6 +8,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 @user = []
+
+@user << User.create!(
+  email: 'test@test.com',
+  password: 'zaq1@WSX',
+  username: FFaker::Internet.user_name,
+  first_name: FFaker::Name.name,
+  last_name: FFaker::Name.last_name,
+  birth_date: DateTime.now,
+  role: 1,
+  confirmed_at: DateTime.now
+)
+
 5.times do
   @user << User.create!(
     email: FFaker::Internet.unique.email,
