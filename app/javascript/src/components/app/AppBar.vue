@@ -46,6 +46,8 @@
     computed: {
       ...mapGetters({
         isAuthenticated: 'auth/isAuthenticated',
+        canCreateIncidents: 'auth/canCreateIncidents',
+        incidents: 'incident/list',
         user: 'auth/user',
       })
     },

@@ -8,6 +8,7 @@
 <script>
   import HeaderSection from '../components/home/HeaderSection'
 
+
   export default {
     name: 'HomeView',
     components: { HeaderSection }

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Incident < ApplicationRecord
+  extend FriendlyId
+  friendly_id :number, use: :slugged
+
   belongs_to :user, optional: true
   belongs_to :category
   belongs_to :group, optional: true

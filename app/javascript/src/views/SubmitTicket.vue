@@ -1,17 +1,44 @@
 <template>
   <div>
     TicketSubmition
+    <incident-form :incident="incident" @submitAction="update"></incident-form>
   </div>
 
 </template>
 
 <script>
-  import HeaderSection from '../components/home/HeaderSection'
+  import { mapActions, mapGetters } from 'vuex';
+  import { UPDATE_INCIDENT } from '@/store/modules/incident/action-types';
+  import IncidentForm from '@components/global/IncidentForm';
 
   export default {
-    name: 'HomeView',
-    components: { HeaderSection }
-  }
+    name: 'SubmitTicket',
+    components: { IncidentForm },
+    props: ['incident'],
+    data() {
+      return {
+        editable: 0,
+      };
+    },
+    computed: {
+      ...mapGetters({
+        user: 'auth/user',
+      }),
+
+      isEditable() {
+        return this.editable === 1;
+      },
+    },
+    methods: {
+      ...mapActions({
+        updateIncident: `incident/${UPDATE_INCIDENT}`,
+      }),
+      update() {
+        this.updateIncident({ incident: this.incident });
+        this.editable = 0;
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

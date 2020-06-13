@@ -88,6 +88,7 @@ end
 5.times do
   @incident << Incident.create!(
     title: FFaker::Lorem.sentence,
+    number: "#{rand(1..10)}_#{rand(1..10)}_#{rand(1..10)}",
     description: FFaker::Company.bs,
     user: @user.sample,
     status: 1,

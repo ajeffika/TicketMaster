@@ -23,7 +23,9 @@ gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'omniauth-google-oauth2'
+gem 'friendly_id'
 gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

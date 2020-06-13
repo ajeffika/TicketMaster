@@ -2,7 +2,8 @@
   <v-card-text>
     <form>
       <v-text-field
-        v-model="entry.title"
+        v-model="incident.title"
+        :items="title"
         v-validate="'required'"
         :error-messages="errors.collect('title')"
         :label="$t('entry.form.title')"
@@ -12,10 +13,10 @@
         required
       ></v-text-field>
       <v-select
-        v-model="entry.scopeType"
+        v-model="incident.description"
         v-validate="'required'"
-        :items="scopeTypeItems"
-        :error-messages="errors.collect('scopeType')"
+        :items="description"
+        :error-messages="errors.collect('description')"
         :label="$t('entry.form.scopeType')"
         data-vv-name="scopeType"
         :data-vv-as="$t('entry.form.scopeType')"
@@ -25,10 +26,10 @@
         item-color="secondary"
       ></v-select>
       <v-select
-        v-model="entry.categoryIds"
+        v-model="incident.categoryId"
         v-validate="'required'"
-        :items="musicCategories"
-        :error-messages="errors.collect('musicCategories')"
+        :items="categoryId"
+        :error-messages="errors.collect('attachment')"
         :label="$t('entry.form.musicCategories')"
         data-vv-name="musicCategories"
         :data-vv-as="$t('entry.form.musicCategories')"
@@ -41,16 +42,18 @@
         deletable-chips
       ></v-select>
       <v-text-field
-        v-model="entry.phone"
+        v-model="incident.userId"
+        :items="userId"
         v-validate="'min:9|numeric'"
-        :error-messages="errors.collect('phone')"
+        :error-messages="errors.collect('category')"
         :label="$t('entry.form.phone')"
         data-vv-name="phone"
         :data-vv-as="$t('entry.form.phone')"
         color="dark"
       ></v-text-field>
       <v-text-field
-        v-model="entry.city"
+        v-model="incident.attachment"
+        :items="attachment"
         v-validate="'required'"
         :error-messages="errors.collect('city')"
         :label="$t('entry.form.city')"
@@ -59,18 +62,6 @@
         color="dark"
         required
       ></v-text-field>
-      <v-textarea
-        rows="2"
-        auto-grow
-        v-model="entry.description"
-        v-validate="'required'"
-        :error-messages="errors.collect('description')"
-        :label="$t('entry.form.description')"
-        data-vv-name="description"
-        :data-vv-as="$t('entry.form.description')"
-        color="dark"
-        required
-      ></v-textarea>
     </form>
     <v-card-actions class="mt-3">
       <v-spacer />
@@ -83,23 +74,17 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import { FETCH_MUSIC_CATEGORIES } from '@/store/modules/category/action-types'
+  import { FETCH_INCIDENT_CATEGORIES } from '@/store/modules/category/action-types'
 
   export default {
-    name: 'EntryForm',
-    props: ['entry'],
+    name: 'IncidentForm',
+    props: ['incident'],
     $_veeValidate: {
       validator: 'new'
     },
-    data: () => ({
-      scopeTypeItems: [
-        { name: 'Muzyk', value: 'musician' },
-        { name: 'Zespół', value: 'band' }
-      ]
-    }),
     computed: {
       ...mapGetters({
-        musicCategories: 'category/musicCategories',
+        incidentCategories: 'category/categories',
       }),
 
       translatedSubmit() {
@@ -112,7 +97,7 @@
     },
     methods: {
       ...mapActions({
-        fetchMusicCategories: `category/${FETCH_MUSIC_CATEGORIES}`,
+        fetchCategories: `category/${FETCH_INCIDENT_CATEGORIES}`,
       }),
       submit() {
         this.$validator.validateAll().then(result => {

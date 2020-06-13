@@ -7,13 +7,13 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   end
 
   def show
-    incident = Incident.find(params[:id])
+    incident = Incident.friendly.find(params[:id])
 
     render json: incident
   end
 
   def destroy
-    incident = Incident.find(params[:id])
+    incident = Incident.friendly.find(params[:id])
     incident.destroy
     render json: @incidents
   end
@@ -28,7 +28,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   end
 
   def update
-    incident = Incident.find(incident_params[:id])
+    incident = Incident.friendly.find(incident_params[:id])
 
     if incident.update(incident_params)
       render json: incident
