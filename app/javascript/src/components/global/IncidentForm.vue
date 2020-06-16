@@ -3,36 +3,33 @@
     <form>
       <v-text-field
         v-model="incident.title"
-        :items="title"
         v-validate="'required'"
         :error-messages="errors.collect('title')"
-        :label="$t('entry.form.title')"
+        :label="$t('incident.form.title')"
         data-vv-name="title"
-        :data-vv-as="$t('entry.form.city')"
+        :data-vv-as="$t('incident.form.title')"
         color="dark"
         required
       ></v-text-field>
-      <v-select
+      <v-text-field
         v-model="incident.description"
         v-validate="'required'"
-        :items="description"
         :error-messages="errors.collect('description')"
-        :label="$t('entry.form.scopeType')"
-        data-vv-name="scopeType"
-        :data-vv-as="$t('entry.form.scopeType')"
+        :label="$t('incident.form.description')"
+        data-vv-name="description"
+        :data-vv-as="$t('incident.form.scopeType')"
         color="dark"
         item-text="name"
         item-value="value"
         item-color="secondary"
-      ></v-select>
-      <v-select
+      ></v-text-field>
+      <v-text-field
         v-model="incident.categoryId"
         v-validate="'required'"
-        :items="categoryId"
-        :error-messages="errors.collect('attachment')"
-        :label="$t('entry.form.musicCategories')"
-        data-vv-name="musicCategories"
-        :data-vv-as="$t('entry.form.musicCategories')"
+        :error-messages="errors.collect('categoryId')"
+        :label="$t('incident.form.categoryId')"
+        data-vv-name="categoryId"
+        :data-vv-as="$t('incident.form.categoryId')"
         color="dark"
         item-text="name"
         item-value="id"
@@ -40,25 +37,23 @@
         multiple
         chips
         deletable-chips
-      ></v-select>
+      ></v-text-field>
       <v-text-field
         v-model="incident.userId"
-        :items="userId"
         v-validate="'min:9|numeric'"
-        :error-messages="errors.collect('category')"
-        :label="$t('entry.form.phone')"
-        data-vv-name="phone"
-        :data-vv-as="$t('entry.form.phone')"
+        :error-messages="errors.collect('userId')"
+        :label="$t('incident.form.userId')"
+        data-vv-name="userId"
+        :data-vv-as="$t('incident.form.userId')"
         color="dark"
       ></v-text-field>
       <v-text-field
         v-model="incident.attachment"
-        :items="attachment"
         v-validate="'required'"
-        :error-messages="errors.collect('city')"
-        :label="$t('entry.form.city')"
-        data-vv-name="city"
-        :data-vv-as="$t('entry.form.city')"
+        :error-messages="errors.collect('attachment')"
+        :label="$t('incident.form.attachment')"
+        data-vv-name="attachment"
+        :data-vv-as="$t('incident.form.attachment')"
         color="dark"
         required
       ></v-text-field>
@@ -88,10 +83,10 @@
       }),
 
       translatedSubmit() {
-        if (this.entry.id) {
-          return this.$i18n.t('entry.form.updateEntry')
+        if (this.incident.id) {
+          return this.$i18n.t('incident.form.updateIncident')
         } else {
-          return this.$i18n.t('entry.form.saveEntry')
+          return this.$i18n.t('incident.form.saveIncident')
         }
       }
     },

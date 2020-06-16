@@ -27,7 +27,6 @@
             <user-info-tab></user-info-tab>
           </v-tab-item>
           <v-tab-item value="band">
-            <user-band-tab></user-band-tab>
           </v-tab-item>
         </v-tabs-items>
       </v-col>

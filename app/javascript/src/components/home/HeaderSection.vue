@@ -31,7 +31,7 @@
     },
     methods: {
       linkToTicketSubmit() {
-        this.$router.push({ name: 'submitTicket' })
+        this.$router.push({ name: 'newIncident' })
       },
       showTextArea() {
         this.initialRender = false

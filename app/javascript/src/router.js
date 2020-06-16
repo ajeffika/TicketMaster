@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import SignUp from './views/SignUp'
 import SignIn from './views/SignIn'
-import SubmitTicket from './views/SubmitTicket'
+import NewIncident from './views/NewIncident'
 import UserProfile from './views/UserProfile'
 import { ifAuthenticated, ifNotAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
@@ -39,9 +39,9 @@ const router = new Router({
       beforeEnter: ifAuthenticated
     },
     {
-      path: '/submitTicket',
-      name: 'submitTicket',
-      component: SubmitTicket,
+      path: '/new_incident',
+      name: 'newIncident',
+      component: NewIncident,
       meta: { layout: 'no-app-bar' },
       beforeEnter: ifAuthenticated
     }
