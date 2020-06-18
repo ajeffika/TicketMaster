@@ -23,13 +23,14 @@
         item-value="value"
         item-color="secondary"
       ></v-text-field>
-      <v-text-field
+      <v-select
         v-model="incident.categoryId"
+        :items="categories"
         v-validate="'required'"
-        :error-messages="errors.collect('categoryId')"
-        :label="$t('incident.form.categoryId')"
-        data-vv-name="categoryId"
-        :data-vv-as="$t('incident.form.categoryId')"
+        :error-messages="errors.collect('categories')"
+        :label="$t('incident.form.categories')"
+        data-vv-name="categories"
+        :data-vv-as="$t('incident.form.categories')"
         color="dark"
         item-text="name"
         item-value="id"
@@ -37,10 +38,10 @@
         multiple
         chips
         deletable-chips
-      ></v-text-field>
+      ></v-select>
       <v-text-field
         v-model="incident.userId"
-        v-validate="'min:9|numeric'"
+        v-validate="'required'"
         :error-messages="errors.collect('userId')"
         :label="$t('incident.form.userId')"
         data-vv-name="userId"
@@ -69,7 +70,7 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  import { FETCH_INCIDENT_CATEGORIES } from '@/store/modules/category/action-types'
+  import { FETCH_CATEGORIES } from '@/store/modules/category/action-types'
 
   export default {
     name: 'IncidentForm',
@@ -79,7 +80,7 @@
     },
     computed: {
       ...mapGetters({
-        incidentCategories: 'category/categories',
+        categories: 'category/categories',
       }),
 
       translatedSubmit() {
@@ -92,7 +93,7 @@
     },
     methods: {
       ...mapActions({
-        fetchCategories: `category/${FETCH_INCIDENT_CATEGORIES}`,
+        fetchCategories: `category/${FETCH_CATEGORIES}`,
       }),
       submit() {
         this.$validator.validateAll().then(result => {

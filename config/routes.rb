@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth'
       resources :incidents
+      resources :categories
 
       scope :validations do
         post '/validate-uniqueness', to: 'validations#validate_uniqueness'

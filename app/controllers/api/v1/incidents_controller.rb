@@ -19,6 +19,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   end
 
   def create
+    binding.pry
     incident = Incident.new(incident_params)
     if incident.save
       render json: incident

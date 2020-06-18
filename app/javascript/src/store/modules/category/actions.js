@@ -1,12 +1,12 @@
 import {
-  FETCH_INCIDENT_CATEGORIES
+  FETCH_CATEGORIES
 } from './action-types'
 import api from '@/api'
 
 export default {
-  [FETCH_INCIDENT_CATEGORIES]: ({ commit }) => {
+  [FETCH_CATEGORIES]: ({ commit }) => {
     api.get('/categories').then((response) => {
-      commit(FETCH_INCIDENT_CATEGORIES, response)
+      commit(FETCH_CATEGORIES, response)
     })
   },
 }
