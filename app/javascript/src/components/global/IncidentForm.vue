@@ -78,6 +78,9 @@
     $_veeValidate: {
       validator: 'new'
     },
+    created() {
+      this.fetchCategories()
+    },
     computed: {
       ...mapGetters({
         categories: 'category/categories',

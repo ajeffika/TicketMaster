@@ -3,7 +3,6 @@ class Api::V1::CategoriesController < Api::V1::BaseController
   respond_to :json
 
   def index
-    binding.pry
     categories = Category.all
     render json: categories
   end
