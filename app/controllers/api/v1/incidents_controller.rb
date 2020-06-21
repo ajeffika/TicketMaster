@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::IncidentsController < Api::V1::BaseController
+
   def index
     @incidents = IncidentsQuery.new(current_user).fetch
     render json: @incidents
@@ -20,7 +21,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
 
   def create
     binding.pry
-    incident = Incident.new(incident_params)
+    incident = current_user.incidents.new(incident_params)
     if incident.save
       render json: incident
     else
@@ -29,7 +30,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   end
 
   def update
-    incident = Incident.friendly.find(incident_params[:id])
+    incident = current_user.incidents.friendly.find(incident_params[:id])
 
     if incident.update(incident_params)
       render json: incident
@@ -44,7 +45,6 @@ class Api::V1::IncidentsController < Api::V1::BaseController
     params.require(:incident).permit(%i[id
                                         title
                                         description
-                                        user_id
                                         status
                                         pending
                                         group_id

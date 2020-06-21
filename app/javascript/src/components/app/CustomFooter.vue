@@ -15,7 +15,7 @@
         </v-row>
 
         <v-card-text class="py-2 text-center black--text">
-          {{ new Date().getFullYear() }} — <strong class="black--text">Soryns</strong>
+          {{ new Date().getFullYear() }} — <strong class="black--text">Jan Mistarz</strong>
         </v-card-text>
       </v-container>
     </v-card>

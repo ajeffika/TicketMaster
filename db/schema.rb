@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_125455) do
+ActiveRecord::Schema.define(version: 2019_05_22_102448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,12 @@ ActiveRecord::Schema.define(version: 2020_06_13_125455) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.boolean "is_parent", default: false
     t.bigint "sla_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_on_category_id"
     t.index ["sla_id"], name: "index_categories_on_sla_id"
   end
 
@@ -56,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_06_13_125455) do
   end
 
   create_table "incidents", force: :cascade do |t|
+    t.string "number"
+    t.string "slug"
     t.string "title"
     t.text "description"
     t.bigint "user_id"
@@ -66,12 +71,10 @@ ActiveRecord::Schema.define(version: 2020_06_13_125455) do
     t.string "attachment"
     t.text "comment"
     t.integer "step"
+    t.integer "creator_id"
+    t.integer "modifier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "created_by"
-    t.integer "modified_by"
-    t.string "number"
-    t.string "slug"
     t.index ["category_id"], name: "index_incidents_on_category_id"
     t.index ["group_id"], name: "index_incidents_on_group_id"
     t.index ["slug"], name: "index_incidents_on_slug", unique: true

@@ -97,8 +97,8 @@ end
     attachment: FFaker::Movie.title,
     comment: FFaker::Company.bs,
     step: 4,
-    created_by: Date.today,
-    modified_by: Date.today,
+    creator: User.first,
+    modifier: User.first,
   )
 end
 puts 'created 5 records in every table'

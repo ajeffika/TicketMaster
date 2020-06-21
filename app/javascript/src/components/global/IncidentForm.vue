@@ -25,7 +25,7 @@
       ></v-text-field>
       <v-select
         v-model="incident.categoryId"
-        :items="categories"
+        :items="subCategories"
         v-validate="'required'"
         :error-messages="errors.collect('categories')"
         :label="$t('incident.form.categories')"
@@ -39,15 +39,6 @@
         chips
         deletable-chips
       ></v-select>
-      <v-text-field
-        v-model="incident.userId"
-        v-validate="'required'"
-        :error-messages="errors.collect('userId')"
-        :label="$t('incident.form.userId')"
-        data-vv-name="userId"
-        :data-vv-as="$t('incident.form.userId')"
-        color="dark"
-      ></v-text-field>
       <v-text-field
         v-model="incident.attachment"
         v-validate="'required'"
@@ -71,6 +62,7 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import { FETCH_CATEGORIES } from '@/store/modules/category/action-types'
+  import { FETCH_SUBCATEGORIES } from '@/store/modules/category/action-types'
 
   export default {
     name: 'IncidentForm',
@@ -80,10 +72,13 @@
     },
     created() {
       this.fetchCategories()
+      this.fetchSubCategories()
     },
     computed: {
       ...mapGetters({
         categories: 'category/categories',
+        subCategories: 'category/subCategories',
+        user: 'auth/user',
       }),
 
       translatedSubmit() {
@@ -97,6 +92,7 @@
     methods: {
       ...mapActions({
         fetchCategories: `category/${FETCH_CATEGORIES}`,
+        fetchSubCategories: `category/${FETCH_SUBCATEGORIES}`,
       }),
       submit() {
         this.$validator.validateAll().then(result => {

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from '@/App.vue';
-import pl from 'vee-validate/dist/locale/pl';
+import en from 'vee-validate/dist/locale/en';
 import router from '@/router';
 import store from '@/store/index';
 import messages from '@/locales/index';
@@ -20,14 +20,14 @@ Vue.config.productionTip = false;
 Vue.use(VueI18n);
 
 const i18n = new VueI18n({
-  locale: 'pl',
+  locale: 'en',
   messages,
 });
 
 Vue.use(VeeValidate, {
   i18n,
-  locale: 'pl',
-  dictionary: { pl },
+  locale: 'en',
+  dictionary: { en },
   inject: false,
 });
 

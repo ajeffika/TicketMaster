@@ -5,7 +5,9 @@ class CreateCategories < ActiveRecord::Migration[5.2]
     create_table :categories do |t|
       t.string :name
       t.string :description
+      t.boolean :is_parent, default: false
       t.references :sla, foreign_key: true
+      t.references :category
 
       t.timestamps
     end

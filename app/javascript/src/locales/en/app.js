@@ -1,6 +1,6 @@
 export default {
   appBar: {
-    appName: 'Znajdź zespół',
+    appName: 'TicketMaster',
     signIn: 'Zaloguj się',
     signUp: 'Zarejestruj się',
     logout: 'Wyloguj się',

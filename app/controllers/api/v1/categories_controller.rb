@@ -3,7 +3,8 @@ class Api::V1::CategoriesController < Api::V1::BaseController
   respond_to :json
 
   def index
-    categories = Category.all
+    binding.pry
+    categories = Category.where(is_parent: params[:is_parent])
     render json: categories
   end
 

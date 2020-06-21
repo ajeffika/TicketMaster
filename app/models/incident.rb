@@ -7,6 +7,8 @@ class Incident < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category
   belongs_to :group, optional: true
+  belongs_to :creator, class_name: 'User'
+  belongs_to :modifier, class_name: 'User'
 
   def update_created_by
     self.created_by = current_user_id
