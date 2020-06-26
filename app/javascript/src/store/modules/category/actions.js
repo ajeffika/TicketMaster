@@ -9,10 +9,5 @@ export default {
     api.get('/categories', { params: { is_parent: 'true' } }).then((response) => {
       commit(FETCH_CATEGORIES, response)
     })
-  },
-  [FETCH_SUBCATEGORIES]: ({ commit }) => {
-    api.get('/categories', { params: { is_parent: 'false' } }).then((response) => {
-      commit(FETCH_SUBCATEGORIES, response)
-    })
   }
 }

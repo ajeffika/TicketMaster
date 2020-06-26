@@ -2,7 +2,6 @@
   <div>
     <header-section />
   </div>
-
 </template>
 
 <script>

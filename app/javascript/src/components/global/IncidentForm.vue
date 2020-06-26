@@ -11,7 +11,7 @@
         color="dark"
         required
       ></v-text-field>
-      <v-text-field
+      <v-textarea
         v-model="incident.description"
         v-validate="'required'"
         :error-messages="errors.collect('description')"
@@ -22,36 +22,48 @@
         item-text="name"
         item-value="value"
         item-color="secondary"
-      ></v-text-field>
-      <v-select
-        v-model="incident.categoryId"
-        :items="subCategories"
-        v-validate="'required'"
-        :error-messages="errors.collect('categories')"
-        :label="$t('incident.form.categories')"
-        data-vv-name="categories"
-        :data-vv-as="$t('incident.form.categories')"
-        color="dark"
-        item-text="name"
-        item-value="id"
-        item-color="secondary"
-        multiple
-        chips
-        deletable-chips
-      ></v-select>
-      <v-text-field
-        v-model="incident.attachment"
-        v-validate="'required'"
-        :error-messages="errors.collect('attachment')"
-        :label="$t('incident.form.attachment')"
-        data-vv-name="attachment"
-        :data-vv-as="$t('incident.form.attachment')"
-        color="dark"
-        required
-      ></v-text-field>
+      ></v-textarea>
+      <v-row>
+        <v-col
+          cols="10"
+        >
+          <v-expansion-panels
+            accordion
+            multiple
+          >
+            <v-expansion-panel
+              v-for="category in categories"
+              :key="category.name"
+            >
+              <v-expansion-panel-header>{{category.name}}</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-radio-group v-model="categoryScope">
+                  <v-radio
+                    v-for="subCategory in category.children"
+                    :key="subCategory.name"
+                    :label="subCategory.name"
+                    :value="subCategory.id"
+                  ></v-radio>
+                </v-radio-group>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-col>
+      </v-row>
+
+<!--      <v-file-input-->
+<!--        v-model="incident.attachment"-->
+<!--        v-validate="'required'"-->
+<!--        :error-messages="errors.collect('attachment')"-->
+<!--        :label="$t('incident.form.attachment')"-->
+<!--        data-vv-name="attachment"-->
+<!--        :data-vv-as="$t('incident.form.attachment')"-->
+<!--        color="dark"-->
+<!--        required-->
+<!--      ></v-file-input>-->
     </form>
     <v-card-actions class="mt-3">
-      <v-spacer />
+      <v-spacer/>
       <v-btn color="success" @click="submit">
         {{translatedSubmit}}
       </v-btn>
@@ -60,9 +72,8 @@
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import { FETCH_CATEGORIES } from '@/store/modules/category/action-types'
-  import { FETCH_SUBCATEGORIES } from '@/store/modules/category/action-types'
+  import {mapActions, mapGetters} from 'vuex'
+  import {FETCH_CATEGORIES} from '@/store/modules/category/action-types'
 
   export default {
     name: 'IncidentForm',
@@ -70,14 +81,17 @@
     $_veeValidate: {
       validator: 'new'
     },
+    data() {
+      return {
+        categoryScope: 'category'
+      }
+    },
     created() {
       this.fetchCategories()
-      this.fetchSubCategories()
     },
     computed: {
       ...mapGetters({
         categories: 'category/categories',
-        subCategories: 'category/subCategories',
         user: 'auth/user',
       }),
 
@@ -92,7 +106,6 @@
     methods: {
       ...mapActions({
         fetchCategories: `category/${FETCH_CATEGORIES}`,
-        fetchSubCategories: `category/${FETCH_SUBCATEGORIES}`,
       }),
       submit() {
         this.$validator.validateAll().then(result => {

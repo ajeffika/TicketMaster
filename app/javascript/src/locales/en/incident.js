@@ -1,6 +1,7 @@
 export default {
   newIncident: {
-    title: 'New Incident',
+    title: 'Describe your problem',
+    description: 'We need some details about your problem, please describe your issue as thorough as possible'
   },
   editIncident: {
     title: 'Edit Incident'

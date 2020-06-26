@@ -12,7 +12,7 @@
               class="primary--text font-weight-bold secondary"
               @click="linkToTicketSubmit()"
               >
-              {{$t('home.headerSection.submitTicket')}}
+              {{$t('home.headerSection.submitIncident')}}
             </v-btn>
           </div>
         </div>

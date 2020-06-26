@@ -22,6 +22,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def create
     binding.pry
     incident = current_user.incidents.new(incident_params)
+    incident.attachment.attach(params[:attachment])
     if incident.save
       render json: incident
     else

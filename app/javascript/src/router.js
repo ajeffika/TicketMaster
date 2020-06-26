@@ -42,7 +42,6 @@ const router = new Router({
       path: '/new_incident',
       name: 'newIncident',
       component: NewIncident,
-      meta: { layout: 'no-app-bar' },
       beforeEnter: ifAuthenticated
     }
   ]

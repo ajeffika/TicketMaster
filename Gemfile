@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'aasm'
+gem "aws-sdk-s3", require: false
 gem 'active_model_serializers', '~> 0.10.0', github: 'rails-api/active_model_serializers', branch: '0-10-stable'
 gem 'action_policy', '~> 0.4.3'
 gem 'bootsnap', '>= 1.4.2', require: false

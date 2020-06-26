@@ -10,6 +10,8 @@ class Incident < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   belongs_to :modifier, class_name: 'User'
 
+  has_one_attached :attachment
+
   def update_created_by
     self.created_by = current_user_id
   end
