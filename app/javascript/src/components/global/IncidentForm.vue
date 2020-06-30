@@ -40,7 +40,7 @@
             >
               <v-expansion-panel-header>{{category.name}}</v-expansion-panel-header>
               <v-expansion-panel-content>
-                <v-radio-group v-model="categoryScope">
+                <v-radio-group v-model="incident.categoryId">
                   <v-radio
                     v-for="subCategory in category.children"
                     :key="subCategory.name"

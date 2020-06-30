@@ -13,7 +13,6 @@ const state = {
     title: '',
     description: '',
     categoryId: '',
-    userId: '',
     status: '',
     pending: '',
     groupId: '',
