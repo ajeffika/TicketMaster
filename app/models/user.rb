@@ -11,8 +11,8 @@ class User < ApplicationRecord
   extend Devise::Models
 
   has_many :incidents
-  has_many :incidents, foreign_key: 'creator_id', class_name: 'User'
-  has_many :incidents, foreign_key: 'modifier_id', class_name: 'User'
+  has_many :incidents, foreign_key: 'creator_id'
+  has_many :incidents, foreign_key: 'modifier_id'
   belongs_to :address, optional: true
   has_many :group_squads
   has_many :groups, through: :group_squads

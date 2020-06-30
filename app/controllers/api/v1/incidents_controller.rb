@@ -22,7 +22,6 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def create
     binding.pry
     incident = current_user.incidents.new(incident_params)
-    incident.attachment.attach(params[:attachment])
     if incident.save
       render json: incident
     else
@@ -49,6 +48,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
                                         status
                                         pending
                                         group_id
+                                        user_id
                                         category_id
                                         attachment
                                         comment

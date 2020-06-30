@@ -1,5 +1,7 @@
 <template>
-  <v-card-text>
+  <v-card-text
+  class="pb-4"
+  >
     <form>
       <v-text-field
         v-model="incident.title"
@@ -28,6 +30,7 @@
           cols="10"
         >
           <v-expansion-panels
+            class="pb-4"
             accordion
             multiple
           >
@@ -50,17 +53,6 @@
           </v-expansion-panels>
         </v-col>
       </v-row>
-
-<!--      <v-file-input-->
-<!--        v-model="incident.attachment"-->
-<!--        v-validate="'required'"-->
-<!--        :error-messages="errors.collect('attachment')"-->
-<!--        :label="$t('incident.form.attachment')"-->
-<!--        data-vv-name="attachment"-->
-<!--        :data-vv-as="$t('incident.form.attachment')"-->
-<!--        color="dark"-->
-<!--        required-->
-<!--      ></v-file-input>-->
     </form>
     <v-card-actions class="mt-3">
       <v-spacer/>

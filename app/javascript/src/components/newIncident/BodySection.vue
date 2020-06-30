@@ -1,36 +1,40 @@
 <template>
-    <div>
-      <v-row class="pt-4">
-        <v-col cols="3">
-        </v-col>
-        <v-col cols="6">
-          <v-row>
-            <div class="text-center">
+  <div>
+    <v-row class="pt-4">
+      <v-col cols="3">
+      </v-col>
+      <v-col cols="6" class="grey lighten-5 rounded">
+        <v-row>
+          <v-col cols="12">
+            <div class="text-center p-4 fluid ">
               <h2>{{$t('incident.newIncident.title')}}</h2>
             </div>
-          </v-row>
-          <v-row>
-            <div class="text-center">
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            <div class="text-center p-4 text-xl-caption text--secondary">
               {{$t('incident.newIncident.description')}}
             </div>
-          </v-row>
-          <v-row>
-            <incident-form :incident="incident" @submitAction="submit"/>
-          </v-row>
-        </v-col>
-        <v-col cols="3">
-        </v-col>
-      </v-row>
-    </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <incident-form :incident="incident" @submitAction="submit"/>
+        </v-row>
+      </v-col>
+      <v-col cols="3">
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
   import IncidentForm from '@components/global/IncidentForm'
+  import {mapActions} from "vuex";
   import {CREATE_INCIDENT} from '@/store/modules/incident/action-types'
-  import {mapActions} from 'vuex'
 
   export default {
-    name: 'NewIncidentView',
+    name: 'HomeView',
     components: {IncidentForm},
     data: () => {
       return {
@@ -59,3 +63,8 @@
     }
   }
 </script>
+<style>
+  .rounded{
+    border-radius:15px;
+  }
+</style>

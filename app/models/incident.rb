@@ -12,12 +12,15 @@ class Incident < ApplicationRecord
 
   has_one_attached :attachment
 
-  def update_created_by
-    self.created_by = current_user_id
+  before_validation :update_creator
+  before_validation :update_modifier
+
+  def update_creator
+    self.creator_id = current_user_id
   end
 
-  def update_modified_by
-    self.modified_by = current_user_id
+  def update_modifier
+    self.modifier_id = current_user_id
   end
 
   def current_user_id

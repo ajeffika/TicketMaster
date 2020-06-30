@@ -1,5 +1,5 @@
 <template>
-  <v-footer absolute tile padless>
+  <v-footer app  tile padless>
     <v-card class="flex footer-card" flat tile>
       <v-container fluid>
         <v-row>
