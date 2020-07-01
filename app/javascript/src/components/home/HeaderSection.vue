@@ -2,19 +2,8 @@
   <v-container fluid class="pa-0">
     <v-row no-gutters>
       <v-col cols="12" class="background-image">
-        <div class="background-image--text text-center">
+        <div class="text-center">
           <h1 class="display-3 font-weight-bold" v-html="$t('home.headerSection.title')"></h1>
-          <div class="mt-12 find-artist">
-            <v-btn
-              tile
-              large
-              width="300px"
-              class="primary--text font-weight-bold secondary"
-              @click="linkToTicketSubmit()"
-              >
-              {{$t('home.headerSection.submitIncident')}}
-            </v-btn>
-          </div>
         </div>
       </v-col>
     </v-row>
@@ -40,20 +29,20 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  .background-image {
-    position: relative;
+<!--<style lang="scss" scoped>-->
+<!--  .background-image {-->
+<!--    position: relative;-->
 
-    &--text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
+<!--    &&#45;&#45;text {-->
+<!--      position: absolute;-->
+<!--      top: 50%;-->
+<!--      left: 50%;-->
+<!--      transform: translate(-50%, -50%);-->
+<!--      color: white;-->
 
-      .display-3 {
-        line-height: 4.20rem;
-      }
-    }
-  }
-</style>
+<!--      .display-3 {-->
+<!--        line-height: 4.20rem;-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--</style>-->

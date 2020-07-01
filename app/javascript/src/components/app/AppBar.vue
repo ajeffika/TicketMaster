@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-left color="primary">
+  <v-app-bar app clipped-left dark>
     <div>
       <v-toolbar-title :to="{name: 'home'}" class="headline brand-name-title d-flex align-center">
         <router-link tag='div' :to="{name: 'home'}" class="app-bar-title">

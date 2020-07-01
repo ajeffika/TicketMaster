@@ -1,16 +1,18 @@
 <template>
   <div>
     <header-section />
+    <body-section />
   </div>
 </template>
 
 <script>
   import HeaderSection from '../components/home/HeaderSection'
+  import BodySection  from '../components/home/BodySection'
 
 
   export default {
     name: 'HomeView',
-    components: { HeaderSection }
+    components: { HeaderSection, BodySection }
   }
 </script>
 

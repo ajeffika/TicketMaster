@@ -1,11 +1,17 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container fluid class="pt-5">
     <v-row no-gutters>
       <v-col cols="12" class="background-image">
         <div class="background-image--text text-center">
-          <h1 class="display-3 font-weight-bold" v-html="$t('home.headerSection.title')"></h1>
-          <div class="mt-12 find-artist">
-
+          <div class="mt-12 submit-ticket">
+            <v-btn
+              x-large
+              raised
+              tile
+              dark
+              @click="linkToTicketSubmit()">
+              {{$t('home.headerSection.submitIncident')}}
+            </v-btn>
           </div>
         </div>
       </v-col>
@@ -15,15 +21,15 @@
 
 <script>
   export default {
-    name: 'HeaderSection',
+    name: 'BodySection',
     data: () => {
       return {
         initialRender: true
       }
     },
     methods: {
-      linkToEntries(scope) {
-        this.$router.push({ name: 'entries', params: { scopeType: scope } })
+      linkToTicketSubmit() {
+        this.$router.push({ name: 'newIncident' })
       },
       showTextArea() {
         this.initialRender = false

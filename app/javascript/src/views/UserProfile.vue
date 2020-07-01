@@ -2,13 +2,7 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12" md="6" offset-md="3">
-        <v-tabs
-          v-model="tab"
-          icons-and-text
-          centered
-          color="white"
-          grow
-        >
+        <v-tabs v-model="tab" icons-and-text centered color="white" grow>
           <v-tab href="#info">
             {{$t('userProfile.tabs.profile')}}
             <v-icon>mdi-account</v-icon>
@@ -18,7 +12,6 @@
             {{$t('userProfile.tabs.band')}}
             <v-icon>mdi-account-group</v-icon>
           </v-tab>
-
           <v-tabs-slider></v-tabs-slider>
         </v-tabs>
 

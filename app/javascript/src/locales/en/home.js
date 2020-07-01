@@ -1,9 +1,9 @@
 export default {
   headerSection: {
-    title: 'Music </br> is everywhere </br> we are the music',
-    startTyping: 'Zacznij wpisywać',
-    signUp: 'Załóż profil',
-    submitTicket: 'Mam problem - (załóż zgłoszenie)'
+    title: "You broke something,\n didn't you?",
+    startTyping: 'Start typing',
+    signUp: 'Register',
+    submitIncident: 'Yes!, I did \n(submit incident)'
   },
   aboutUsSection: {
     title: 'We Are Here to HELP</br>',
