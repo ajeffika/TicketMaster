@@ -3,8 +3,12 @@
 class Api::V1::IncidentsController < Api::V1::BaseController
 
   def index
-    @incidents = IncidentsQuery.new(current_user).fetch
-    render json: @incidents
+    if params[:userId].present?
+      incidents = Incident.where(user_id: current_user.id)
+    else
+      incidents = IncidentsQuery.new(current_user).fetch
+    end
+    render json: incidents
   end
 
   def show
@@ -22,6 +26,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def create
     binding.pry
     incident = current_user.incidents.new(incident_params)
+    incident.user_id = current_user.id
     if incident.save
       render json: incident
     else

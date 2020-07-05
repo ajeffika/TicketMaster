@@ -13,14 +13,6 @@
             >
             </v-btn>
             <div class="title mt-6">{{$t('home.headerSection.subtitle')}}</div>
-            <v-btn
-              tile
-              large
-              class="black--text font-weight-bold mt-6"
-              width="200px"
-              color="primary"
-            >{{$t('home.headerSection.signUp')}}
-            </v-btn>
           </div>
         </div>
       </v-col>

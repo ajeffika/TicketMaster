@@ -75,9 +75,6 @@
       ></v-checkbox>
     </form>
     <div>
-      <v-btn width="250px" large rounded color="primary black--text" @click="submit">
-        {{$t('auth.form.signUp')}}
-      </v-btn>
     </div>
   </div>
 </template>

@@ -4,12 +4,7 @@
       <v-col cols="12" class="background-image">
         <div class="background-image--text text-center">
           <div class="mt-12 submit-ticket">
-            <v-btn
-              x-large
-              raised
-              tile
-              dark
-              @click="linkToTicketSubmit()">
+            <v-btn x-large raised tile dark @click="linkToTicketSubmit()">
               {{$t('home.headerSection.submitIncident')}}
             </v-btn>
           </div>

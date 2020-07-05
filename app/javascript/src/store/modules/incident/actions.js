@@ -28,7 +28,7 @@ export default {
     api.post('/incidents', incident).then((response) => {
       commit('global/SET_SNACK', { message: 'createdIncident' }, { root: true });
       router.push(
-        { name: 'editIncident', params: { id: response.data.incident.id } },
+        { name: 'incidentList'},
       );
     });
   },

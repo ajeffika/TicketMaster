@@ -10,10 +10,6 @@
       <v-col cols="12" md="5" offset-md="1" class="px-3 pt-5 pt-md-0 px-md-0">
         <div class="form-wrapper text-center">
           <div class="d-flex justify-space-between">
-            <v-btn title outlined color="secondary" class="mb-5" @click="goToSignUp">
-              <v-icon>mdi-arrow-left</v-icon>
-              {{$t('global.custom.signUp')}}
-            </v-btn>
             <v-btn tile outlined color="secondary" class="form-wrapper--button mb-5" @click="goHome">
               {{$t('global.custom.goHome')}}
               <v-icon>mdi-home</v-icon>
@@ -23,12 +19,6 @@
             <div class="display-3">{{$t('auth.form.signIn')}}</div>
             <div class="mt-5">{{$t('auth.form.signInDescription')}}</div>
             <div class="d-flex justify-md-center justify-space-between my-5">
-              <div class="mx-md-8" v-for="socialButton in socialButtons" :key="socialButton.name">
-                <v-btn class="mx-2" fab large light :color="socialButton.color"
-                       @click="callSocialButtonAction(socialButton.provider)">
-                  <v-icon color="white">{{socialButton.icon}}</v-icon>
-                </v-btn>
-              </div>
             </div>
             <div class="hr-line-with-icon mt-3">
               <div class="hr-line-with-icon--line"></div>
@@ -53,7 +43,7 @@
   import OmniAuthService from '@helpers/omni-auth-service'
 
   export default {
-    name: 'SignUpView',
+    name: 'SignInView',
     components: { SignInForm },
     mixins: [OmniAuthService],
     data: () => {
@@ -62,18 +52,6 @@
           email: '',
           password: ''
         },
-        socialButtonStructure: [
-          { name: 'facebook', provider: 'facebook', icon: 'mdi-facebook-box', color: '#5a75c3' },
-          { name: 'twitter', provider: 'twitter', icon: 'mdi-twitter', color: '#1DA1F2' },
-          { name: 'google', provider: 'google_oauth2', icon: 'mdi-google', color: '#DD4B39' }
-        ]
-      }
-    },
-    computed: {
-      socialButtons() {
-        return this.socialButtonStructure.map(button => {
-          return Object.assign(button, { name: this.$i18n.t(`global.socialButtons.${button.name}`) })
-        })
       }
     },
     methods: {
@@ -86,13 +64,6 @@
       goHome() {
         this.$router.push({ name: 'home' })
       },
-      goToSignUp() {
-        this.$router.push({ name: 'signUp' })
-      },
-      callSocialButtonAction(provider) {
-        // ToDo configure rest of omniauth on production
-        location.replace(`https://d9b18fc7.ngrok.io/api/v1/auth/${provider}?origin=${this.redirectUrl}`)
-      }
     }
   }
 </script>

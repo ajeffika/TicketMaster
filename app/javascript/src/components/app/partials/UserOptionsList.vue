@@ -9,10 +9,10 @@
     </template>
     <v-list color="primary" dense>
       <v-list-item-group>
-        <v-list-item :to="{name: 'myEntries'}">
+        <v-list-item :to="{name: 'incidentList'}">
           <v-list-item-content>
             <v-list-item-title>
-              {{$t('app.appBar.myEntries')}}
+              {{$t('app.appBar.myIncidents')}}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

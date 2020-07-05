@@ -14,7 +14,7 @@ class CreateIncidents < ActiveRecord::Migration[5.2]
       t.references :category, foreign_key: true, default: 1
       t.string :attachment
       t.text :comment
-      t.integer :step, default: 1
+      t.string :step, default: 'new'
       t.integer :creator_id
       t.integer :modifier_id
 

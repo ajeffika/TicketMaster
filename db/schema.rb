@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_102448) do
     t.bigint "category_id", default: 1
     t.string "attachment"
     t.text "comment"
-    t.integer "step", default: 1
+    t.string "step", default: "new"
     t.integer "creator_id"
     t.integer "modifier_id"
     t.datetime "created_at", null: false

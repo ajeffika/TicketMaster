@@ -10,8 +10,6 @@
     <v-spacer></v-spacer>
     <div class="hidden-sm-and-down mr-6">
       <v-btn text class="font-weight-bold" :to="{name: 'contactUs'}">{{$t('app.appBar.tickets')}}</v-btn>
-      <discover-options-list />
-      <entries-options-list />
     </div>
     <v-btn
       v-if="isAuthenticated"
@@ -23,14 +21,12 @@
       {{$t('app.appBar.yourProfile')}}
     </v-btn>
     <div class="hidden-md-and-up">
-      <mobile-menu></mobile-menu>
     </div>
     <v-toolbar-items v-if="isAuthenticated" class="hidden-sm-and-down">
       <user-options-list />
     </v-toolbar-items>
     <div v-else class="hidden-sm-and-down button-spacing">
       <v-btn rounded color="black" class="white--text" :to="{name: 'signIn'}">{{$t('app.appBar.signIn')}}</v-btn>
-      <v-btn text color="black" class="font-weight-bold" :to="{name: 'signUp'}">{{$t('app.appBar.signUp')}}</v-btn>
     </div>
   </v-app-bar>
 </template>

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import BodySection from '@components/incidents/newIncident/BodySection'
+  import BodySection from '@components/incidents/incidentList/BodySection'
 
   export default {
     name: 'NewIncidentView',

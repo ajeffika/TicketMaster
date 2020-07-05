@@ -12,5 +12,8 @@ export default {
     categories: 'Category',
     attachment: 'Attachment',
     saveIncident: 'Submit Incident',
+  },
+  incidentList: {
+    title: 'My Incidents'
   }
 }

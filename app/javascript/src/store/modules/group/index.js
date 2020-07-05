@@ -10,17 +10,7 @@ const state = {
   },
   record: {
     id: '',
-    title: '',
-    description: '',
-    categoryId: '',
-    status: '',
-    pending: '',
-    groupId: '',
-    attachment: '',
-    modifier: '',
-    number: '',
-    slug: '',
-    step: ''
+    name: ''
   },
   recordsAreLoading: false,
 };

@@ -4,7 +4,9 @@ class Incident < ApplicationRecord
   extend FriendlyId
   friendly_id :number, use: :slugged
 
-  belongs_to :user, optional: true
+  enum step: {fresh: 'fresh', in_progress: 'in_progress', pending: 'pending', cancelled: 'cancelled', resolved: 'resolved'}
+
+  belongs_to :user, class_name: 'User'
   belongs_to :category
   belongs_to :group, optional: true
   belongs_to :creator, class_name: 'User', optional: true
@@ -14,12 +16,10 @@ class Incident < ApplicationRecord
   before_validation :update_modifier
 
   def update_creator
-    binding.pry
     self.creator_id = current_user_id
   end
 
   def update_modifier
-    binding.pry
     self.modifier_id = current_user_id
   end
 

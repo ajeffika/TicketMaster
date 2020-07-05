@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home'
-import SignUp from './views/SignUp'
 import SignIn from './views/SignIn'
 import NewIncident from './views/User/NewIncident'
+import IncidentList from './views/User/IncidentList'
 import UserProfile from './views/UserProfile'
 import { ifAuthenticated, ifNotAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
@@ -17,13 +17,6 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/register',
-      name: 'signUp',
-      component: SignUp,
-      meta: { layout: 'no-app-bar' },
-      beforeEnter: ifNotAuthenticated
     },
     {
       path: '/login',
@@ -43,7 +36,13 @@ const router = new Router({
       name: 'newIncident',
       component: NewIncident,
       beforeEnter: ifAuthenticated
-    }
+    },
+    {
+      path: '/incident_list',
+      name: 'incidentList',
+      component: IncidentList,
+      beforeEnter: ifAuthenticated
+    },
   ]
 })
 

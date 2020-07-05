@@ -6,11 +6,11 @@
       <v-col cols="6">
         <v-row>
           <v-col cols="12">
-            <v-card color="#e0e0e0" elevation="20" class="rounded-corner opacity">
+            <v-card elevation="20" dark class="rounded-corner opacity test text--white">
               <div class="text-center pt-4 fluid ">
                 <h2>{{$t('incident.newIncident.title')}}</h2>
               </div>
-              <div class="text-center p-4 text-xl-caption text--secondary">
+              <div class="text-center p-4 text-xl-caption">
                 {{$t('incident.newIncident.description')}}
               </div>
               <div>
@@ -63,8 +63,10 @@
 </script>
 <style>
   .opacity{
-    backdrop-filter: blur(6px);
-    opacity: 0.8;
+    backdrop-filter: blur(18px) grayscale(8%);
+    background-color: transparent!important;
+    border-color: transparent!important;
+    opacity: 1.8;
   }
   .rounded-corner {
     border-radius: 20px !important;

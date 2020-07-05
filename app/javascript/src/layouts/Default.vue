@@ -1,9 +1,6 @@
 <template>
   <div>
-    <v-parallax
-      height="800"
-      :src="require('@/assets/images/techy-background.png')"
-    >
+    <v-img contain :src="require('@/assets/images/techy-background.png')">
     <app-bar :params="params"/>
       <snack-bar-notifications/>
         <transition name="fade" mode="out-in">
@@ -11,7 +8,7 @@
         </transition>
       <cookies-box/>
       <custom-footer></custom-footer>
-    </v-parallax>
+    </v-img>
   </div>
 </template>
 

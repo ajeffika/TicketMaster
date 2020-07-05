@@ -80,7 +80,19 @@ end
   @category << Category.create!(
     name: FFaker::Lorem.sentence,
     description: FFaker::Company.bs,
-    sla_id: 5
+    sla_id: 5,
+    is_parent: 'true'
+  )
+end
+
+@subcategory = []
+25.times do
+  @subcategory << Category.create!(
+    name: FFaker::Lorem.sentence,
+    description: FFaker::Company.bs,
+    sla_id: 5,
+    category_id: @category.pluck(:id).sample,
+    is_parent: 'false'
   )
 end
 
@@ -96,9 +108,9 @@ end
     category: @category.sample,
     attachment: FFaker::Movie.title,
     comment: FFaker::Company.bs,
-    step: 4,
-    creator: User.first,
-    modifier: User.first,
+    step: 'fresh',
+    # creator: User.first,
+    # modifier: User.first,
   )
 end
 puts 'created 5 records in every table'
