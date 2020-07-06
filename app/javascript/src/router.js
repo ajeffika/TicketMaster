@@ -5,6 +5,7 @@ import SignIn from './views/SignIn'
 import NewIncident from './views/User/NewIncident'
 import IncidentList from './views/User/IncidentList'
 import UserProfile from './views/UserProfile'
+import AdminHomePage from './views/Admin/AdminHomePage'
 import { ifAuthenticated, ifNotAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
 
@@ -19,10 +20,14 @@ const router = new Router({
       component: Home
     },
     {
+      path: '/',
+      name: 'adminHome',
+      component: AdminHomePage
+    },
+    {
       path: '/login',
       name: 'signIn',
       component: SignIn,
-      meta: { layout: 'no-app-bar' },
       beforeEnter: ifNotAuthenticated
     },
     {

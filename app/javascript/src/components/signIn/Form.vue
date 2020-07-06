@@ -10,7 +10,6 @@
         :data-vv-as="$t('auth.form.email')"
         required
         outlined
-        shaped
         color="dark"
       ></v-text-field>
       <v-text-field
@@ -23,12 +22,11 @@
         type="password"
         required
         outlined
-        shaped
         color="dark"
       ></v-text-field>
     </form>
     <div>
-      <v-btn width="250px" large rounded color="primary black--text" @click="submit">
+      <v-btn width="250px" large rounded dark  @click="submit">
         {{$t('auth.form.signIn')}}
       </v-btn>
     </div>

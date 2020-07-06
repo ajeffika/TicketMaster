@@ -1,15 +1,15 @@
 export default {
   profile: {
-    firstName: 'Imię',
-    lastName: 'Nazwisko',
+    firstName: 'First Name',
+    lastName: 'Last Name',
     email: 'E-mail',
-    password: 'Hasło',
-    username: 'Pseudonim',
-    edit: 'Edytuj',
+    password: 'Password',
+    username: 'Username',
+    edit: 'Edit',
   },
 
   tabs: {
-    profile: 'Profil',
+    profile: 'Profile',
   },
 
 };

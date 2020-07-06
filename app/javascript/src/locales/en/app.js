@@ -1,6 +1,6 @@
 export default {
   appBar: {
-    yourProfile: 'Your Profile',
+    yourProfile: 'My Profile',
     appName: 'TicketMaster',
     signIn: 'Log In',
     signUp: 'Sign Up',
@@ -9,8 +9,6 @@ export default {
     contactUs: 'Contact',
     news: 'News',
     tickets: 'My Incidents',
+    myIncidents: 'My Incidents',
   },
-  footer: {
-    title: 'Get connected with us on social networks!'
-  }
 }

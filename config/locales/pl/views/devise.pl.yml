@@ -112,7 +112,7 @@ pl:
     sessions:
       already_signed_out: Wylogowano pomyślnie.
       new:
-        sign_in: Zaloguj się
+        sign_in: Log in
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:

@@ -16,7 +16,7 @@ const state = {
     username: '',
     firstName: '',
     lastName: '',
-    permissions: {},
+    role: '',
   },
 };
 

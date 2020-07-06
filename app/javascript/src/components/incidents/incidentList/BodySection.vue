@@ -2,8 +2,8 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12" md="6" offset-md="3">
-        <v-card>
-          <v-container fluid>
+        <v-card dark class="pa-6">
+          <v-container fluid class=" rounded-corner">
             <h1>
               {{$t('incident.incidentList.title')}}
               <div class="float-right">

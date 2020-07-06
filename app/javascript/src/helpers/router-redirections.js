@@ -15,3 +15,12 @@ export const ifAuthenticated = (to, from, next) => {
   }
   next({ name: 'signIn' })
 }
+
+export const ifAdminAuthenticated = (to, from, next) => {
+  if (store.getters['auth/isAdminAuthenticated']) {
+    next()
+    return
+  }
+  next({ name: 'adminHome' })
+}
+

@@ -28,8 +28,7 @@ export default {
       lastName: userData['last_name'],
       email: userData['email'],
       username: userData['username'],
-      permissions: userData['permissions'],
-      bandId: userData['band_id']
+      role: userData['role']
     }
   },
 

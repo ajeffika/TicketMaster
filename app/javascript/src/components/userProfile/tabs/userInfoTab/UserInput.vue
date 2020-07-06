@@ -14,10 +14,10 @@
 
     <div v-else-if="isPasswordField">
       <v-row>
-        <v-col cols="6" md="4">
+        <v-col class="text-left" cols="6" md="4">
           {{fieldName}}:
         </v-col>
-        <v-col cols="6" md="8">
+        <v-col class="text-right" cols="6" md="8">
           {{user[userField.name]}}
         </v-col>
       </v-row>

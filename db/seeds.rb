@@ -10,13 +10,24 @@
 @user = []
 
 @user << User.create!(
-  email: 'test@test.com',
+  email: 'admin@test.com',
   password: 'zaq1@WSX',
   username: FFaker::Internet.user_name,
   first_name: FFaker::Name.name,
   last_name: FFaker::Name.last_name,
   birth_date: DateTime.now,
-  role: 1,
+  role: 'admin',
+  confirmed_at: DateTime.now
+)
+
+@user << User.create!(
+  email: 'user@test.com',
+  password: 'zaq1@WSX',
+  username: FFaker::Internet.user_name,
+  first_name: FFaker::Name.name,
+  last_name: FFaker::Name.last_name,
+  birth_date: DateTime.now,
+  role: 'user',
   confirmed_at: DateTime.now
 )
 
@@ -28,7 +39,7 @@
     first_name: FFaker::Name.name,
     last_name: FFaker::Name.last_name,
     birth_date: DateTime.now,
-    role: 1,
+    role: 'user',
     confirmed_at: DateTime.now
   )
 end

@@ -6,7 +6,7 @@
       <v-col cols="6">
         <v-row>
           <v-col cols="12">
-            <v-card elevation="20" dark class="rounded-corner opacity test text--white">
+            <v-card elevation="20" dark class="rounded-corner text--white">
               <div class="text-center pt-4 fluid ">
                 <h2>{{$t('incident.newIncident.title')}}</h2>
               </div>
