@@ -3,10 +3,11 @@
 class Api::V1::IncidentsController < Api::V1::BaseController
 
   def index
+    binding.pry
     if params[:userId].present?
       incidents = Incident.where(user_id: current_user.id)
-    else
-      incidents = IncidentsQuery.new(current_user).fetch
+    elsif params[:groupIds].present?
+      incidents = Incident.where(group_id: params[:groupIds]).to_resolve
     end
     render json: incidents
   end
@@ -20,7 +21,7 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def destroy
     incident = Incident.friendly.find(params[:id])
     incident.destroy
-    render json: @incidents
+    render json: incidents
   end
 
   def create

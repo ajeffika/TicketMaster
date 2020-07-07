@@ -31,9 +31,11 @@ ActiveRecord::Schema.define(version: 2019_05_22_102448) do
     t.boolean "is_parent", default: false
     t.bigint "sla_id"
     t.bigint "category_id"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
+    t.index ["group_id"], name: "index_categories_on_group_id"
     t.index ["sla_id"], name: "index_categories_on_sla_id"
   end
 

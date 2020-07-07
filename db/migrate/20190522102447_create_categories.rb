@@ -8,6 +8,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.boolean :is_parent, default: false
       t.references :sla, foreign_key: true
       t.references :category
+      t.references :group
 
       t.timestamps
     end

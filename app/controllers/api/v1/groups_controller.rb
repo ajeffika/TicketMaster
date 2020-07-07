@@ -3,8 +3,7 @@ class Api::V1::GroupsController < Api::V1::BaseController
   respond_to :json
 
   def index
-    @groups = Group.all
-    render json: @groups
+    render json: current_user.groups
   end
 
   def show

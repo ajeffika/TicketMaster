@@ -14,6 +14,11 @@ class Incident < ApplicationRecord
 
   before_validation :update_creator
   before_validation :update_modifier
+  before_create :set_group
+
+  OPEN_STATUSES = %w[fresh in_progress pending]
+
+  scope :to_resolve, -> {where(step: OPEN_STATUSES)}
 
   def update_creator
     self.creator_id = current_user_id
@@ -25,5 +30,9 @@ class Incident < ApplicationRecord
 
   def current_user_id
     User.current_user.try(:id)
+  end
+
+  def set_group
+    self.group_id = category.group_id
   end
 end

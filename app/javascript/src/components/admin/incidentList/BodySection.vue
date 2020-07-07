@@ -18,29 +18,32 @@
       </v-col>
     </v-row>
   </v-container>
-</template>
+</template>HomePager
 
 <script>
-  import ExpansionIncidentsList from '@components/incidents/incidentList/ExpansionIncidentsList';
-  import { mapActions, mapGetters } from 'vuex';
-  import { FETCH_INCIDENT } from '@/store/modules/incident/action-types';
+  import ExpansionIncidentsList from '@components/admin/incidentList/ExpansionIncidentsList';
+  import {mapActions, mapGetters} from 'vuex';
   import {FETCH_INCIDENTS} from "../../../store/modules/incident/action-types";
+  import {FETCH_GROUPS} from "../../../store/modules/group/action-types";
 
   export default {
     name: 'MyIncidents',
-    components: { ExpansionIncidentsList },
+    components: {ExpansionIncidentsList},
     created() {
-      this.fetchIncidents({ userId: this.user.id });
+      this.fetchUserGroups()
+      this.fetchIncidents({groupIds: this.groups.map(group => group.id)});
     },
     computed: {
       ...mapGetters({
         user: 'auth/user',
         incidents: 'incident/list',
         recordsAreLoading: 'incident/recordsAreLoading',
+        groups: 'group/list',
       }),
     },
     methods: {
       ...mapActions({
+        fetchUserGroups: `group/${FETCH_GROUPS}`,
         fetchIncidents: `incident/${FETCH_INCIDENTS}`,
       }),
     },

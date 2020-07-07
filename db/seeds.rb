@@ -45,7 +45,7 @@
 end
 
 @user_group = []
-2.times do
+1.times do
   @user_group << Group.create!(
     name: FFaker::Company.unique.name
   )
@@ -66,15 +66,15 @@ end
 5.times do
   @contractor << Contractor.create!(
     contractor_name: FFaker::Company.name,
-    address: @address.sample
+    address_id: @address.pluck(:id).sample
   )
 end
 
 @group_squad = []
-20.times do
+1.times do
   @group_squad << GroupSquad.create!(
-    user: @user.sample,
-    group: @user_group.sample
+    user_id: @user.first.id,
+    group_id: @user_group.pluck(:id).sample
   )
 end
 
@@ -91,8 +91,9 @@ end
   @category << Category.create!(
     name: FFaker::Lorem.sentence,
     description: FFaker::Company.bs,
-    sla_id: 5,
-    is_parent: 'true'
+    sla_id: @sla.pluck(:id).sample,
+    is_parent: 'true',
+    group_id: @user_group.first.id
   )
 end
 
@@ -113,10 +114,10 @@ end
     title: FFaker::Lorem.sentence,
     number: "#{rand(1..10)}_#{rand(1..10)}_#{rand(1..10)}",
     description: FFaker::Company.bs,
-    user: @user.sample,
+    user_id: @user.pluck(:id).sample,
     status: 1,
-    group: @user_group.sample,
-    category: @category.sample,
+    group_id: @user_group.pluck(:id).sample,
+    category_id: @category.pluck(:id).sample,
     attachment: FFaker::Movie.title,
     comment: FFaker::Company.bs,
     step: 'fresh',

@@ -6,7 +6,9 @@ import NewIncident from './views/User/NewIncident'
 import IncidentList from './views/User/IncidentList'
 import UserProfile from './views/UserProfile'
 import AdminHomePage from './views/Admin/AdminHomePage'
-import { ifAuthenticated, ifNotAuthenticated } from '@helpers/router-redirections'
+import AdminIncidentList from './views/Admin/AdminIncidentList'
+import AdminUserList from './views/Admin/AdminUserList'
+import { ifAuthenticated, ifNotAuthenticated, AdminAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
 
 Vue.use(Router)
@@ -20,9 +22,22 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/admin',
       name: 'adminHome',
-      component: AdminHomePage
+      component: AdminHomePage,
+      beforeEnter: AdminAuthenticated
+    },
+    {
+      path: '/admin_incident_list',
+      name: 'adminIncidentList',
+      component: AdminIncidentList,
+      beforeEnter: AdminAuthenticated
+    },
+    {
+      path: '/admin_user_list',
+      name: 'adminUserList',
+      component: AdminUserList,
+      beforeEnter: AdminAuthenticated
     },
     {
       path: '/login',

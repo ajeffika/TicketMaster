@@ -3,14 +3,12 @@ import getters from './getters';
 import mutations from './mutations';
 
 const state = {
-  signedIn: false,
-  isLoading: false,
-  token: {
-    accessToken: '',
-    client: '',
-    uid: '',
+  list: [],
+  meta: {
+    totalPages: 1,
+    currentPage: 1,
   },
-  user: {
+  users_collection: {
     id: '',
     email: '',
     username: '',
@@ -19,6 +17,7 @@ const state = {
     role: '',
     groupIds: '',
   },
+  recordsAreLoading: false,
 };
 
 export default {

@@ -28,7 +28,8 @@ export default {
       lastName: userData['last_name'],
       email: userData['email'],
       username: userData['username'],
-      role: userData['role']
+      role: userData['role'],
+      groupsIds: userData['groups']
     }
   },
 
