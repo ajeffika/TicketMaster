@@ -7,6 +7,7 @@ import IncidentList from './views/User/IncidentList'
 import UserProfile from './views/UserProfile'
 import AdminHomePage from './views/Admin/AdminHomePage'
 import AdminIncidentList from './views/Admin/AdminIncidentList'
+import AdminIncidentForm from './views/Admin/AdminIncidentForm'
 import AdminUserList from './views/Admin/AdminUserList'
 import AdminUserForm from './views/Admin/AdminUserForm'
 import { ifAuthenticated, ifNotAuthenticated, AdminAuthenticated } from '@helpers/router-redirections'
@@ -48,6 +49,13 @@ const router = new Router({
       name: 'adminUserForm',
       meta: { layout: 'admin' },
       component: AdminUserForm,
+      beforeEnter: AdminAuthenticated
+    },
+    {
+      path: '/admin_incident_form',
+      name: 'adminIncidentForm',
+      meta: { layout: 'admin' },
+      component: AdminIncidentForm,
       beforeEnter: AdminAuthenticated
     },
     {

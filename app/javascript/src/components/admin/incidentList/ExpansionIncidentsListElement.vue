@@ -12,6 +12,14 @@
         <div class="pre-line-description" v-html="incident.description"></div>
         <div class="pre-line-description" v-html="incident.step"></div>
         <div class="pre-line-description" v-html="incident.modifierEmail"></div>
+        <v-btn
+          rounded
+          class="white--text font-weight-bold px-6"
+          color="black"
+          :to="{name: 'adminIncidentForm', params: {incidentId: incident.id}}"
+        >
+          {{$t('incident.list.editIncident')}}
+        </v-btn>
       </div>
 
       <v-divider></v-divider>

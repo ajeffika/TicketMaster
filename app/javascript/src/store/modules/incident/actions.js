@@ -16,9 +16,9 @@ export default {
       commit(SET_LOADING, false);
     });
   },
-  [FETCH_INCIDENT]: ({ commit, dispatch }, id) => {
+  [FETCH_INCIDENT]: ({ commit, dispatch }, params) => {
     return new Promise((resolve) => {
-      api.get(`/incidents/${id}`).then((response) => {
+      api.get(`/incidents/${params.id}`).then((response) => {
         commit(FETCH_INCIDENT, response);
         resolve(response);
       });
