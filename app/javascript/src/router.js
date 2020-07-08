@@ -8,6 +8,7 @@ import UserProfile from './views/UserProfile'
 import AdminHomePage from './views/Admin/AdminHomePage'
 import AdminIncidentList from './views/Admin/AdminIncidentList'
 import AdminUserList from './views/Admin/AdminUserList'
+import AdminUserForm from './views/Admin/AdminUserForm'
 import { ifAuthenticated, ifNotAuthenticated, AdminAuthenticated } from '@helpers/router-redirections'
 import { omniAuthRedirection } from '@helpers/omni-auth-service'
 
@@ -24,19 +25,29 @@ const router = new Router({
     {
       path: '/admin',
       name: 'adminHome',
+      meta: { layout: 'admin' },
       component: AdminHomePage,
       beforeEnter: AdminAuthenticated
     },
     {
       path: '/admin_incident_list',
       name: 'adminIncidentList',
+      meta: { layout: 'admin' },
       component: AdminIncidentList,
       beforeEnter: AdminAuthenticated
     },
     {
       path: '/admin_user_list',
       name: 'adminUserList',
+      meta: { layout: 'admin' },
       component: AdminUserList,
+      beforeEnter: AdminAuthenticated
+    },
+    {
+      path: '/admin_user_form',
+      name: 'adminUserForm',
+      meta: { layout: 'admin' },
+      component: AdminUserForm,
       beforeEnter: AdminAuthenticated
     },
     {

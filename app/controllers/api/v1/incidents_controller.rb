@@ -3,7 +3,6 @@
 class Api::V1::IncidentsController < Api::V1::BaseController
 
   def index
-    binding.pry
     if params[:userId].present?
       incidents = Incident.where(user_id: current_user.id)
     elsif params[:groupIds].present?
@@ -25,7 +24,6 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   end
 
   def create
-    binding.pry
     incident = current_user.incidents.new(incident_params)
     incident.user_id = current_user.id
     if incident.save

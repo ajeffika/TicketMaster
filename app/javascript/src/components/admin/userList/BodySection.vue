@@ -5,7 +5,7 @@
         <v-card dark class="pa-6">
           <v-container fluid class=" rounded-corner">
             <h1>
-              {{$t('user.usersList.title')}}
+              {{$t('user.list.title')}}
               <div class="float-right">
                 {{users.length}}/{{users.length}}
               </div>

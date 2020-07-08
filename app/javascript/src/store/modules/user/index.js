@@ -8,7 +8,7 @@ const state = {
     totalPages: 1,
     currentPage: 1,
   },
-  users_collection: {
+  record: {
     id: '',
     email: '',
     username: '',

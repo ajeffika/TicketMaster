@@ -2,7 +2,7 @@
 
 class Api::V1::UsersController < Api::V1::BaseController
   def index
-    @users = User.all
+    @users = User.all.order('created_at ASC')
     render json: @users
   end
 
@@ -13,7 +13,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def create
     user = User.new(user_params)
-    if user.save
+    if user.save!
       render json: { data: UserSerializer.new(user) }
     else
       render json: 'Record did not save'

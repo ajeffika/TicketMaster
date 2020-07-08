@@ -11,9 +11,11 @@ import interceptorsSetup from '@/helpers/interceptors';
 import isUnique from '@/validators/isUnique';
 import Default from '@/layouts/Default.vue';
 import NoAppBar from '@/layouts/NoAppBar.vue';
+import Admin from '@/layouts/Admin.vue';
 
 Vue.component('default-layout', Default);
 Vue.component('no-app-bar-layout', NoAppBar);
+Vue.component('admin-layout', Admin);
 
 Vue.config.productionTip = false;
 

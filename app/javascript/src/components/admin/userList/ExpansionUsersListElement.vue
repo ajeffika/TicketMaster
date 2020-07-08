@@ -8,49 +8,53 @@
 
     <v-expansion-panel-content>
       <div class="mt-5 mb-5">
-        <div class="headline" v-text="user.username"></div>
-        <div class="pre-line-description" v-html="user.email"></div>
-        <div class="pre-line-description" v-html="user.firstName"></div>
-        <div class="pre-line-description" v-html="user.lastName"></div>
-        <div class="pre-line-description" v-html="user.role"></div>
-        <div class="pre-line-description" v-html="user.groupIds"></div>
+        <v-simple-table>
+          <template>
+            <tbody>
+            <tr>
+              <td>{{ $t('user.list.username') }}</td>
+              <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+              <td>{{ $t('user.list.email') }}</td>
+              <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+              <td>{{ $t('user.list.firstName') }}</td>
+              <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+              <td>{{ $t('user.list.lastName') }}</td>
+              <td>{{ user.lastName }}</td>
+            </tr>
+            <tr>
+              <td>{{ $t('user.list.role') }}</td>
+              <td>{{ user.role}}</td>
+            </tr>
+            </tbody>
+          </template>
+            <v-btn
+              rounded
+              class="white--text font-weight-bold px-6"
+              color="black"
+              :to="{name: 'adminUserForm', params: {userId: user.id}}"
+            >
+              {{$t('user.list.editUser')}}
+            </v-btn>
+        </v-simple-table>
+
       </div>
-      </v-expansion-panel-content>>
+    </v-expansion-panel-content>
+
   </div>
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex';
-  import {UPDATE_INCIDENT} from '@/store/modules/incident/action-types';
-  // import IncidentForm from '@components/global/IncidentForm';
 
   export default {
     name: 'ExpansionIncidentsListElement',
     components: {},
-    props: ['users'],
-    data() {
-      return {
-        editable: 0,
-      };
-    },
-    computed: {
-      ...mapGetters({
-        user: 'auth/user',
-      }),
-
-      isEditable() {
-        return this.editable === 1;
-      },
-    },
-    methods: {
-      ...mapActions({
-        updateIncident: `incident/${UPDATE_INCIDENT}`,
-      }),
-      update() {
-        this.updateIncident({incident: this.incident});
-        this.editable = 0;
-      },
-    },
+    props: ['user'],
   };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <v-expansion-panels focusable popout light>
     <v-expansion-panel v-for="user in users" :key="user.id">
-      <expansion-users-list-element :users="user"></expansion-users-list-element>
+      <expansion-users-list-element :user="user"></expansion-users-list-element>
     </v-expansion-panel>
   </v-expansion-panels>
 </template>

@@ -7,7 +7,7 @@ import {
 import actionCableSetup from '@/helpers/action-cable'
 
 export default {
-  [AUTH_SUCCESS]: (state, { data, headers }) => {
+  [AUTH_SUCCESS]: (state, {data, headers}) => {
     state.token = {
       accessToken: headers['access-token'],
       client: headers.client,
@@ -19,13 +19,13 @@ export default {
     actionCableSetup()
   },
 
-  [UPDATE_USER]: (state, { data }) => {
+  [UPDATE_USER]: (state, {data}) => {
     const userData = data.data
 
     state.user = {
       id: userData['id'],
-      firstName: userData['first_name'],
-      lastName: userData['last_name'],
+      firstName: userData['firstName'],
+      lastName: userData['lastName'],
       email: userData['email'],
       username: userData['username'],
       role: userData['role'],
@@ -34,7 +34,7 @@ export default {
   },
 
   [AUTH_LOGOUT]: (state) => {
-    state.user = { permissions: {} }
+    state.user = {permissions: {}}
     state.token = {}
     state.signedIn = false
   },

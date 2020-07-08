@@ -16,9 +16,9 @@ export default {
       commit(SET_LOADING, false);
     });
   },
-  [FETCH_USER]: ({ commit, dispatch }, id) => {
+  [FETCH_USER]: ({ commit, dispatch }, params) => {
     return new Promise((resolve) => {
-      api.get(`/users/${id}`).then((response) => {
+      api.get(`/users/${params.id}`).then((response) => {
         commit(FETCH_USER, response);
         resolve(response);
       });

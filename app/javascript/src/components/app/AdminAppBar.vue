@@ -6,25 +6,40 @@
           <span class="brand-name-bold">{{$t('app.appBar.appName')}}</span>
         </router-link>
       </v-toolbar-title>
+
+      <v-toolbar-title v-else-if="isAdminAuthenticated" :to="{name: 'adminHome'}" class="headline brand-name-title d-flex align-center">
+        <router-link tag='div' :to="{name: 'adminHome'}" class="app-bar-title">
+          <span class="brand-name-bold">{{$t('app.appBar.appName')}}</span>
+        </router-link>
+      </v-toolbar-title>
     </div>
-    <v-spacer></v-spacer>
+    <v-divider/>
     <v-btn
       v-if="isAuthenticated"
       rounded
       class="white--text font-weight-bold px-6"
       color="black"
-      :to="{name: 'profile'}"
+      :to="{name: 'adminHome'}"
     >
-      {{$t('app.appBar.yourProfile')}}
+      {{$t('app.adminAppBar.adminHomePage')}}
     </v-btn>
     <v-btn
-      v-if="isAdminAuthenticated"
+      v-if="isAuthenticated"
       rounded
       class="white--text font-weight-bold px-6"
       color="black"
-      :to="{name: 'adminHome'}"
+      :to="{name: 'adminIncidentList'}"
     >
-      {{$t('app.appBar.adminHome')}}
+      {{$t('app.adminAppBar.adminIncidentList')}}
+    </v-btn>
+    <v-btn
+      v-if="isAuthenticated"
+      rounded
+      class="white--text font-weight-bold px-6"
+      color="black"
+      :to="{name: 'adminUserList'}"
+    >
+      {{$t('app.adminAppBar.adminUserList')}}
     </v-btn>
     <div class="hidden-md-and-up">
     </div>

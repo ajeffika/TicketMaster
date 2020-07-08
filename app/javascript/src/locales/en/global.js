@@ -1,6 +1,7 @@
 export default {
   snackMessages: {
     createdIncident: 'Incident has been created',
+    updatedUser: 'User has been updated',
     //Auth
     loggedOut: 'Succesfully logged out',
     signedIn: 'Successfully logged in',
