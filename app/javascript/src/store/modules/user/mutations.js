@@ -10,7 +10,7 @@ export default {
     state.meta = data.meta;
   },
   [FETCH_USER]: (state, { data }) => {
-    state.record = data.data;
+    state.record = data.user;
   },
   [SET_LOADING]: (state, attr) => {
     state.recordsAreLoading = attr;
