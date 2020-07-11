@@ -1,21 +1,16 @@
 <template>
-  <v-footer absolute tile padless>
+  <v-footer app tile padless dark>
     <v-card class="flex footer-card" flat tile>
       <v-container fluid>
         <v-row>
-          <v-col cols="12" md="6" class="hidden-md-and-down">
-            <div class="headline text-center text-md-left ml-md-4">{{$t('app.footer.title')}}</div>
-          </v-col>
-
-          <v-col cols="12" md="6" class="text-center text-md-right">
+          <v-col cols="12" md="6" offset-md="6" class="text-center text-md-right">
             <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon color="secondary">
               <v-icon size="24px">{{ icon }}</v-icon>
             </v-btn>
           </v-col>
         </v-row>
-
-        <v-card-text class="py-2 text-center black--text">
-          {{ new Date().getFullYear() }} — <strong class="black--text">Soryns</strong>
+        <v-card-text class="py-2 text-center white--text">
+          {{ new Date().getFullYear() }} — <strong class="white--text">Jan Mistarz</strong>
         </v-card-text>
       </v-container>
     </v-card>
@@ -39,9 +34,9 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  .footer-card {
-    background: #FBFF4A;
-    color: black;
-  }
-</style>
+<!--<style lang="scss" scoped>-->
+<!--  .footer-card {-->
+<!--    background: #FBFF4A;-->
+<!--    color: black;-->
+<!--  }-->
+<!--</style>-->

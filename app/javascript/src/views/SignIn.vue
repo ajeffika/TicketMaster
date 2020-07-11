@@ -1,60 +1,42 @@
 <template>
-  <transition appear name="slide-fade">
-    <v-row no-gutters>
-      <v-col cols="5" class="hidden-sm-and-down background-image">
-        <div class="background-image--text white--text pa-sm-3 pa-md-0">
-          <div class="display-3" v-html="$t('auth.signIn.joinUsTitle')"></div>
-          <div class="heading">{{$t('auth.signIn.joinUsDescription')}}</div>
-        </div>
-      </v-col>
-      <v-col cols="12" md="5" offset-md="1" class="px-3 pt-5 pt-md-0 px-md-0">
-        <div class="form-wrapper text-center">
-          <div class="d-flex justify-space-between">
-            <v-btn title outlined color="secondary" class="mb-5" @click="goToSignUp">
-              <v-icon>mdi-arrow-left</v-icon>
-              {{$t('global.custom.signUp')}}
-            </v-btn>
-            <v-btn tile outlined color="secondary" class="form-wrapper--button mb-5" @click="goHome">
-              {{$t('global.custom.goHome')}}
-              <v-icon>mdi-home</v-icon>
-            </v-btn>
-          </div>
-          <div class="form-wrapper--content pb-5 pb-md-0 mt-5 mt-md-0">
-            <div class="display-3">{{$t('auth.form.signIn')}}</div>
-            <div class="mt-5">{{$t('auth.form.signInDescription')}}</div>
-            <div class="d-flex justify-md-center justify-space-between my-5">
-              <div class="mx-md-8" v-for="socialButton in socialButtons" :key="socialButton.name">
-                <v-btn class="mx-2" fab large light :color="socialButton.color"
-                       @click="callSocialButtonAction(socialButton.provider)">
-                  <v-icon color="white">{{socialButton.icon}}</v-icon>
-                </v-btn>
+  <v-row no-gutters>
+    <div class="container-height__modifier">
+      <v-container fill-height fluid>
+        <v-row align="center"
+               justify="center">
+          <v-col cols="12" md="6"  class=" pt-5 pt-md-0 px-md-0">
+            <v-card elevation="20" dark class="pa-6 rounded-corner ">
+              <div class="form-wrapper text-center">
+                <div class="d-flex justify-space-between">
+                  <v-btn tile outlined color="secondary" class="form-wrapper--button mb-5" @click="goHome">
+                    {{$t('global.custom.goHome')}}
+                    <v-icon>mdi-home</v-icon>
+                  </v-btn>
+                </div>
+                <div class="form-wrapper--content pb-5 pb-md-0 mt-5 mt-md-0">
+                  <div class="display-3">{{$t('auth.form.signIn')}}</div>
+                </div>
+                <div class="hr-line-with-icon--line"></div>
               </div>
-            </div>
-            <div class="hr-line-with-icon mt-3">
-              <div class="hr-line-with-icon--line"></div>
-              <div class="hr-line-with-icon--content">
-                <div>{{$t('global.custom.or')}}</div>
-              </div>
-              <div class="hr-line-with-icon--line"></div>
-            </div>
 
-            <sign-in-form :user="user" @submit="submit" />
-          </div>
-        </div>
-      </v-col>
-    </v-row>
-  </transition>
+              <sign-in-form :user="user" @submit="submit"/>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+  </v-row>
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-  import { SIGN_IN } from '@/store/modules/auth/action-types'
+  import {mapActions} from 'vuex'
+  import {SIGN_IN} from '@/store/modules/auth/action-types'
   import SignInForm from '@components/signIn/Form'
   import OmniAuthService from '@helpers/omni-auth-service'
 
   export default {
-    name: 'SignUpView',
-    components: { SignInForm },
+    name: 'SignInView',
+    components: {SignInForm},
     mixins: [OmniAuthService],
     data: () => {
       return {
@@ -62,18 +44,6 @@
           email: '',
           password: ''
         },
-        socialButtonStructure: [
-          { name: 'facebook', provider: 'facebook', icon: 'mdi-facebook-box', color: '#5a75c3' },
-          { name: 'twitter', provider: 'twitter', icon: 'mdi-twitter', color: '#1DA1F2' },
-          { name: 'google', provider: 'google_oauth2', icon: 'mdi-google', color: '#DD4B39' }
-        ]
-      }
-    },
-    computed: {
-      socialButtons() {
-        return this.socialButtonStructure.map(button => {
-          return Object.assign(button, { name: this.$i18n.t(`global.socialButtons.${button.name}`) })
-        })
       }
     },
     methods: {
@@ -84,15 +54,8 @@
         this.signIn(this.user)
       },
       goHome() {
-        this.$router.push({ name: 'home' })
+        this.$router.push({name: 'home'})
       },
-      goToSignUp() {
-        this.$router.push({ name: 'signUp' })
-      },
-      callSocialButtonAction(provider) {
-        // ToDo configure rest of omniauth on production
-        location.replace(`https://d9b18fc7.ngrok.io/api/v1/auth/${provider}?origin=${this.redirectUrl}`)
-      }
     }
   }
 </script>
@@ -136,7 +99,7 @@
       width: 100%;
       position: relative;
       margin: 7px;
-      border-bottom: 1px solid #000;
+      border-bottom: 1px solid #FFF;
     }
 
     &--content {
@@ -145,12 +108,8 @@
     }
   }
 
-  .slide-fade-enter-active {
-    transition: all 2s ease;
-  }
-
-  .slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(-20px);
-    opacity: 0.5;
+  .container-height__modifier {
+    height: 75vh;
+    width: 100%;
   }
 </style>

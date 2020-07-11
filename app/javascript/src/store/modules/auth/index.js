@@ -16,8 +16,8 @@ const state = {
     username: '',
     firstName: '',
     lastName: '',
-    permissions: {},
-    bandId: ''
+    role: '',
+    groupIds: '',
   },
 };
 

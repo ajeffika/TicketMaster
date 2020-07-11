@@ -6,6 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'aasm'
+gem "aws-sdk-s3", require: false
 gem 'active_model_serializers', '~> 0.10.0', github: 'rails-api/active_model_serializers', branch: '0-10-stable'
 gem 'action_policy', '~> 0.4.3'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -23,7 +24,9 @@ gem 'slim'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'omniauth-google-oauth2'
+gem 'friendly_id'
 gem 'rack-cors', :require => 'rack/cors'
+
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -32,6 +35,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop'
   gem 'rubocop-performance'

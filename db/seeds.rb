@@ -8,6 +8,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 @user = []
+
+@user << User.create!(
+  email: 'admin@test.com',
+  password: 'zaq1@WSX',
+  username: FFaker::Internet.user_name,
+  first_name: FFaker::Name.name,
+  last_name: FFaker::Name.last_name,
+  birth_date: DateTime.now,
+  role: 'admin',
+  confirmed_at: DateTime.now
+)
+
+@user << User.create!(
+  email: 'user@test.com',
+  password: 'zaq1@WSX',
+  username: FFaker::Internet.user_name,
+  first_name: FFaker::Name.name,
+  last_name: FFaker::Name.last_name,
+  birth_date: DateTime.now,
+  role: 'user',
+  confirmed_at: DateTime.now
+)
+
 5.times do
   @user << User.create!(
     email: FFaker::Internet.unique.email,
@@ -16,13 +39,13 @@
     first_name: FFaker::Name.name,
     last_name: FFaker::Name.last_name,
     birth_date: DateTime.now,
-    role: 1,
+    role: 'user',
     confirmed_at: DateTime.now
   )
 end
 
 @user_group = []
-2.times do
+1.times do
   @user_group << Group.create!(
     name: FFaker::Company.unique.name
   )
@@ -43,15 +66,15 @@ end
 5.times do
   @contractor << Contractor.create!(
     contractor_name: FFaker::Company.name,
-    address: @address.sample
+    address_id: @address.pluck(:id).sample
   )
 end
 
 @group_squad = []
-20.times do
+1.times do
   @group_squad << GroupSquad.create!(
-    user: @user.sample,
-    group: @user_group.sample
+    user_id: @user.first.id,
+    group_id: @user_group.pluck(:id).sample
   )
 end
 
@@ -68,7 +91,20 @@ end
   @category << Category.create!(
     name: FFaker::Lorem.sentence,
     description: FFaker::Company.bs,
-    sla_id: 5
+    sla_id: @sla.pluck(:id).sample,
+    is_parent: 'true',
+    group_id: @user_group.first.id
+  )
+end
+
+@subcategory = []
+25.times do
+  @subcategory << Category.create!(
+    name: FFaker::Lorem.sentence,
+    description: FFaker::Company.bs,
+    sla_id: 5,
+    category_id: @category.pluck(:id).sample,
+    is_parent: 'false'
   )
 end
 
@@ -76,16 +112,17 @@ end
 5.times do
   @incident << Incident.create!(
     title: FFaker::Lorem.sentence,
+    number: "#{rand(1..10)}_#{rand(1..10)}_#{rand(1..10)}",
     description: FFaker::Company.bs,
-    user: @user.sample,
+    user_id: @user.pluck(:id).sample,
     status: 1,
-    group: @user_group.sample,
-    category: @category.sample,
+    group_id: @user_group.pluck(:id).sample,
+    category_id: @category.pluck(:id).sample,
     attachment: FFaker::Movie.title,
     comment: FFaker::Company.bs,
-    step: 4,
-    created_by: Date.today,
-    modified_by: Date.today,
+    step: 'fresh',
+    # creator: User.first,
+    # modifier: User.first,
   )
 end
 puts 'created 5 records in every table'

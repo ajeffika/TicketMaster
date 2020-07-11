@@ -2,17 +2,17 @@
   <v-menu offset-y open-on-hover>
     <template v-slot:activator="{ on }">
       <v-btn text v-on="on">
-<!--        <v-avatar color="black">-->
-<!--          <span class="white&#45;&#45;text headline">{{avatarOrInitial}}</span>-->
-<!--        </v-avatar>-->
+        <v-avatar size="3em">
+          <v-img :src="require('@/assets/images/user_avatar.png')"></v-img>
+        </v-avatar>
       </v-btn>
     </template>
     <v-list color="primary" dense>
       <v-list-item-group>
-        <v-list-item :to="{name: 'myEntries'}">
+        <v-list-item :to="{name: 'incidentList'}">
           <v-list-item-content>
             <v-list-item-title>
-              {{$t('app.appBar.myEntries')}}
+              {{$t('app.appBar.myIncidents')}}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
 class Api::V1::IncidentsController < Api::V1::BaseController
+
   def index
-    @incidents = IncidentsQuery.new(current_user).fetch
-    render json: @incidents
+    if params[:userId].present?
+      incidents = Incident.where(user_id: current_user.id)
+    elsif params[:groupIds].present?
+      incidents = Incident.where(group_id: params[:groupIds]).to_resolve
+    end
+    render json: incidents
   end
 
   def show
@@ -15,11 +20,12 @@ class Api::V1::IncidentsController < Api::V1::BaseController
   def destroy
     incident = Incident.find(params[:id])
     incident.destroy
-    render json: @incidents
+    render json: incidents
   end
 
   def create
-    incident = Incident.new(incident_params)
+    incident = current_user.incidents.new(incident_params)
+    incident.user_id = current_user.id
     if incident.save
       render json: incident
     else
@@ -29,7 +35,6 @@ class Api::V1::IncidentsController < Api::V1::BaseController
 
   def update
     incident = Incident.find(incident_params[:id])
-
     if incident.update(incident_params)
       render json: incident
     else
@@ -43,10 +48,10 @@ class Api::V1::IncidentsController < Api::V1::BaseController
     params.require(:incident).permit(%i[id
                                         title
                                         description
-                                        user_id
                                         status
                                         pending
                                         group_id
+                                        user_id
                                         category_id
                                         attachment
                                         comment

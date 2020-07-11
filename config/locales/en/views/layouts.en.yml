@@ -1,0 +1,11 @@
+en:
+  layouts:
+    components:
+      sidebar:
+        app_title: ManagementSystem
+        users: Users
+      navbar:
+        logout: Logout
+        profile_settings: Profile settings
+        user: Profil
+

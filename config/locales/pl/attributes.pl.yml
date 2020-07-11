@@ -1,0 +1,12 @@
+pl:
+  activerecord:
+    attributes:
+      user:
+        first_name: Imie
+        last_name: Nazwisko
+        email: Email
+        username: Pseudonim
+        role: Rola
+        password: Hasło
+        password_confirmation: Powtórz hasło
+        remember_me: Zapamiętaj mnie

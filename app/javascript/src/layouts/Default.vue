@@ -1,13 +1,14 @@
 <template>
   <div>
-    <!--    <sidebar :params="params"/>-->
+    <v-img contain :src="require('@/assets/images/techy-background.png')">
     <app-bar :params="params"/>
-    <snack-bar-notifications/>
-    <transition name="fade" mode="out-in">
-      <slot/>
-    </transition>
-    <cookies-box/>
-    <custom-footer></custom-footer>
+      <snack-bar-notifications/>
+        <transition name="fade" mode="out-in">
+          <slot/>
+        </transition>
+      <cookies-box/>
+      <custom-footer></custom-footer>
+    </v-img>
   </div>
 </template>
 
@@ -40,4 +41,5 @@
   .fade-enter, .fade-leave-active {
     opacity: 0;
   }
+
 </style>

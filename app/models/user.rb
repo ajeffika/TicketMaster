@@ -10,7 +10,9 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   extend Devise::Models
 
-  has_many :incidents
+  has_many :incidents, foreign_key: 'user_id'
+  has_many :incidents, foreign_key: 'creator_id'
+  has_many :incidents, foreign_key: 'modifier_id'
   belongs_to :address, optional: true
   has_many :group_squads
   has_many :groups, through: :group_squads
@@ -19,5 +21,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: { normal: 0, admin: 1 }
+  enum role: { user: 'user', admin: 'admin' }
 end

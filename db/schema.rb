@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_192734) do
+ActiveRecord::Schema.define(version: 2019_05_22_102448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,14 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.boolean "is_parent", default: false
     t.bigint "sla_id"
+    t.bigint "category_id"
+    t.bigint "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_on_category_id"
+    t.index ["group_id"], name: "index_categories_on_group_id"
     t.index ["sla_id"], name: "index_categories_on_sla_id"
   end
 
@@ -56,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
   end
 
   create_table "incidents", force: :cascade do |t|
+    t.string "number"
+    t.string "slug"
     t.string "title"
     t.text "description"
     t.bigint "user_id"
@@ -65,13 +72,14 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.bigint "category_id", default: 1
     t.string "attachment"
     t.text "comment"
-    t.integer "step"
+    t.string "step", default: "new"
+    t.integer "creator_id"
+    t.integer "modifier_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "created_by"
-    t.integer "modified_by"
     t.index ["category_id"], name: "index_incidents_on_category_id"
     t.index ["group_id"], name: "index_incidents_on_group_id"
+    t.index ["slug"], name: "index_incidents_on_slug", unique: true
     t.index ["user_id"], name: "index_incidents_on_user_id"
   end
 
@@ -90,6 +98,11 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -99,7 +112,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_192734) do
     t.string "first_name"
     t.string "last_name"
     t.datetime "birth_date"
-    t.integer "role", default: 0
+    t.string "role", default: "user"
     t.bigint "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

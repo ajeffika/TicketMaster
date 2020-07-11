@@ -8,8 +8,13 @@ class IncidentSerializer < BaseSerializer
                 status
                 pending
                 group_id
+                modifier_email
                 category_id
                 attachment
                 comment
                 step]
+
+  def modifier_email
+    object.modifier&.email || 'Waiting for assigment'
+  end
 end
